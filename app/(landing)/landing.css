@@ -1,0 +1,332 @@
+/*
+ * Styles for the ServiceNow service landing pages (ITOM / HRSD / SPM).
+ *
+ * These rules target bare elements (`p`, `h2`) and generic classes
+ * (`.container`), so they are scoped to the `.bm-landing` wrapper to keep them
+ * off the rest of the site — `container` in particular is used by the shared
+ * <Navigation>.
+ *
+ * The scope is `:where(.bm-landing)` rather than `.bm-landing` on purpose:
+ * `:where()` contributes zero specificity, so these rules sit at the same
+ * weight as the Tailwind utilities they interleave with. Plain `.bm-landing x`
+ * would add a class-worth of specificity and silently override utilities the
+ * layout relies on (e.g. `text-[18px]` / `!text-[16px]` on <p>).
+ *
+ * Brand colours and the heading/body font stacks live in tailwind.config.ts,
+ * so `text-brand-purple`, `bg-brand-purple`, `font-body` etc. resolve normally.
+ *
+ * Loaded by app/(landing)/layout.tsx, i.e. after globals.css.
+ */
+
+:where(.bm-landing) {
+  --container: 80vw;
+  --min-container: 70vw;
+  --brand-green: #4fca07;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+/* ── Layout containers ────────────────────────────────────────────────── */
+:where(.bm-landing) .container {
+  width: var(--container);
+  margin: auto;
+}
+
+:where(.bm-landing) .min-container {
+  width: var(--min-container);
+  margin: auto;
+}
+
+/* ── Typography ───────────────────────────────────────────────────────── */
+:where(.bm-landing) p {
+  font-size: 20px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+:where(.bm-landing) h1,
+:where(.bm-landing) h2,
+:where(.bm-landing) h3,
+:where(.bm-landing) h4,
+:where(.bm-landing) h5,
+:where(.bm-landing) h6 {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+:where(.bm-landing) h2 {
+  font-size: 40px !important;
+  font-weight: 400;
+}
+
+:where(.bm-landing) .node-text {
+  font-size: 16px;
+}
+
+:where(.bm-landing) .text-green {
+  color: var(--brand-green);
+}
+
+:where(.bm-landing) .why-organization-txt {
+  font-size: 18px;
+}
+
+:where(.bm-landing) .bottom-cta-heading {
+  font-weight: 700;
+}
+
+:where(.bm-landing) .results-metric-text {
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+:where(.bm-landing) .strategic-result {
+  font-size: 18px !important;
+}
+
+:where(.bm-landing) .bangmetric-way-desc {
+  font-size: 14px !important;
+}
+
+:where(.bm-landing) .jumpstarts-p {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  color: #000;
+}
+
+:where(.bm-landing) #what-we-build .group h3 {
+  font-size: 20px !important;
+}
+
+/* ── Cards ────────────────────────────────────────────────────────────── */
+:where(.bm-landing) .jumpstart-card {
+  position: relative;
+  overflow: hidden;
+  transition: background 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.5s ease, transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+:where(.bm-landing) .jumpstart-card:hover {
+  background: #9f9ef2 !important;
+  border-color: #9f9ef2 !important;
+  transform: translateY(-4px);
+  box-shadow: inset 0px 0px 4.3px 3px #00000047 !important;
+}
+
+:where(.bm-landing) .jumpstart-card h3,
+:where(.bm-landing) .jumpstart-card p,
+:where(.bm-landing) .jumpstart-card span {
+  transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+:where(.bm-landing) .jumpstart-card:hover h3,
+:where(.bm-landing) .jumpstart-card:hover p,
+:where(.bm-landing) .jumpstart-card:hover span {
+  color: #ffffff !important;
+}
+
+:where(.bm-landing) .bangmetric-way-card {
+  transition: all 0.3s ease;
+}
+
+:where(.bm-landing) .bangmetric-way-card:hover {
+  background-color: #9383dc !important;
+  box-shadow: 2px 3px 4.3px 0px #00000040;
+}
+
+:where(.bm-landing) .bangmetric-way-card:hover h3,
+:where(.bm-landing) .bangmetric-way-card:hover p {
+  color: #fff !important;
+}
+
+/* ── Animations ───────────────────────────────────────────────────────── */
+/* Keyframes are global by nature, so they carry a bm- prefix to avoid
+   colliding with the existing `blob` animation in globals.css. */
+@keyframes bm-cube-pure-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+:where(.bm-landing) .cube-pure-float {
+  animation: bm-cube-pure-float 5s ease-in-out infinite;
+}
+
+@keyframes bm-space-drift {
+  0%,
+  100% {
+    transform: translateY(12px) translateX(0px) rotate(0deg) scale(1);
+  }
+  33% {
+    transform: translateY(2px) translateX(4px) rotate(1.5deg) scale(1.01);
+  }
+  66% {
+    transform: translateY(-6px) translateX(-4px) rotate(-1.5deg) scale(1.02);
+  }
+}
+
+:where(.bm-landing) .space-drift-animate {
+  animation: bm-space-drift 8s ease-in-out infinite;
+}
+
+@keyframes bm-cube-spin-float {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translateY(-16px) rotate(180deg) scale(1.05);
+  }
+  100% {
+    transform: translateY(0) rotate(360deg) scale(1);
+  }
+}
+
+:where(.bm-landing) .cube-spin-float-animate {
+  animation: bm-cube-spin-float 15s ease-in-out infinite;
+  filter: drop-shadow(0 10px 20px rgba(171, 154, 232, 0.2));
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:where(.bm-landing) .cube-spin-float-animate:hover {
+  filter: drop-shadow(0 20px 40px rgba(171, 154, 232, 0.45));
+}
+
+@keyframes bm-bubble-float {
+  0%,
+  100% {
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-12px) scale(1.03) rotate(2deg);
+  }
+  66% {
+    transform: translateY(6px) scale(0.97) rotate(-2deg);
+  }
+}
+
+:where(.bm-landing) .bubble-float-animate {
+  animation: bm-bubble-float 7s ease-in-out infinite;
+  filter: drop-shadow(0 10px 20px rgba(171, 154, 232, 0.15));
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:where(.bm-landing) .bubble-float-animate:hover {
+  filter: drop-shadow(0 20px 40px rgba(171, 154, 232, 0.35));
+}
+
+@keyframes bm-hero-zoom {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+:where(.bm-landing) .animate-hero-zoom {
+  animation: bm-hero-zoom 20s ease-in-out infinite;
+}
+
+@keyframes bm-hero-section-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+:where(.bm-landing) .animate-hero-section {
+  animation: bm-hero-section-fade 0.8s ease-out forwards;
+}
+
+@keyframes bm-hero-card-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+:where(.bm-landing) .animate-hero-card {
+  animation: bm-hero-card-reveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes bm-hero-text-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+:where(.bm-landing) .animate-hero-text {
+  animation: bm-hero-text-reveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+}
+
+/* The hero markup ships with `opacity-0` and relies on these animations to
+   fade in. With prefers-reduced-motion the animation never runs, which left
+   the whole hero invisible — so pin the end state explicitly. */
+@media (prefers-reduced-motion: reduce) {
+  .bm-landing .cube-pure-float,
+  .bm-landing .space-drift-animate,
+  .bm-landing .cube-spin-float-animate,
+  .bm-landing .bubble-float-animate,
+  .bm-landing .animate-hero-zoom {
+    animation: none;
+  }
+
+  .bm-landing .animate-hero-section,
+  .bm-landing .animate-hero-card,
+  .bm-landing .animate-hero-text {
+    animation: none;
+    opacity: 1 !important;
+    transform: none;
+  }
+}
+
+/* ── Mobile ───────────────────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  :where(.bm-landing) h2 {
+    font-size: 30px !important;
+  }
+
+  :where(.bm-landing) p {
+    font-size: 16px;
+  }
+
+  :where(.bm-landing) .strategic-result {
+    font-size: 18px !important;
+  }
+
+  :where(.bm-landing) .bangmetricCardImg {
+    width: 100%;
+  }
+
+  :where(.bm-landing) h3.leading-snug {
+    font-size: 20px !important;
+  }
+
+  :where(.bm-landing) .animate-hero-text {
+    text-align: center;
+  }
+
+  :where(.bm-landing) #what-we-build .group h3 {
+    font-size: 16px !important;
+  }
+
+  :where(.bm-landing) .min-container {
+    width: 80vw;
+    margin: auto;
+  }
+}
