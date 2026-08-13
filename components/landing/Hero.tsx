@@ -31,7 +31,7 @@ export default function Hero({
   return (
     <section className="w-full flex justify-center pt-28 md:pt-24 lg:pt-28">
       <div className="w-full mx-auto px-4 md:px-8 lg:px-10 pb-0 relative z-20">
-        <div className=" relative w-full max-w-[1376px] h-[220px] sm:h-[280px] md:h-[340px] lg:h-[404px] rounded-[20px] overflow-hidden flex items-center justify-center ">
+        <div className=" relative w-full h-[220px] sm:h-[280px] md:h-[340px] lg:h-[404px] rounded-[20px] overflow-hidden flex items-center justify-center ">
           <div className="absolute inset-0">
             <Image
               src={finalBannerImage}
