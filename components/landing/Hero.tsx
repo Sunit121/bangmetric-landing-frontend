@@ -29,9 +29,9 @@ export default function Hero({
   const finalBannerImage = bannerImage || defaultBanner;
 
   return (
-    <section className="w-full relative pt-32 pb-10 md:pt-40 md:pb-[3.75rem] bg-white overflow-hidden animate-hero-section opacity-0">
-      <div className="w-full mx-auto px-2 md:px-8 lg:px-10 pb-0 relative z-20">
-        <div className="relative w-full max-w-full h-[25rem] rounded-[20px] overflow-hidden flex items-center justify-center animate-hero-card opacity-0">
+    <section className="w-full flex justify-center pt-28 md:pt-24 lg:pt-28">
+      <div className="w-full mx-auto px-4 md:px-8 lg:px-10 pb-0 relative z-20">
+        <div className=" relative w-full max-w-[1376px] h-[220px] sm:h-[280px] md:h-[340px] lg:h-[404px] rounded-[20px] overflow-hidden flex items-center justify-center ">
           <div className="absolute inset-0">
             <Image
               src={finalBannerImage}
