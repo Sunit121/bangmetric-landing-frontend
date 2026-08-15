@@ -14,6 +14,7 @@ interface ITOMWhyChooseProps {
   paragraphs?: React.ReactNode[];
   points?: WhyPoint[];
   imageRight?: string;
+  imageClassName?: string;
 }
 
 export default function ITOMWhyChoose({
@@ -48,7 +49,8 @@ export default function ITOMWhyChoose({
       desc: "— fewer incidents, faster MTTR, proactive operations",
     },
   ],
-  imageRight
+  imageRight,
+  imageClassName,
 }: ITOMWhyChooseProps) {
 
   return (
@@ -88,7 +90,14 @@ export default function ITOMWhyChoose({
             {imageRight ? (
               <MotionReveal as="div" delay={0.2} className="w-full relative h-[350px] sm:h-[400px] lg:h-[500px] flex items-start justify-center lg:justify-end">
                 <div className="relative w-[110%] h-[110%] lg:w-[130%] lg:h-[130%] -top-2 lg:-top-[11.25rem] -right-0 lg:-right-12">
-                  <Image src={imageRight} alt="Why Choose Us" fill className="object-contain lg:object-right-top" priority />
+                  <Image
+                    src={imageRight}
+                    alt="Why Choose Us"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    priority
+                    className={`object-contain lg:object-right-top ${imageClassName ?? ""}`}
+                  />
                 </div>
               </MotionReveal>
             ) : (

@@ -3,7 +3,8 @@ import Image from "next/image";
 import MotionReveal from "@/components/landing/MotionReveal";
 
 interface BangmetricStep {
-  title: string;
+  title: React.ReactNode;
+  alt?: string;
   desc: string;
   image?: string;
 }
@@ -63,7 +64,7 @@ export default function BangmetricWay({
                 <div className="bangmetric-way-card flex flex-col md:flex-row items-start md:items-center bg-[#F6F5FA] rounded-2xl p-6 md:p-[25px] border border-[#BEBEBE] gap-4 md:gap-0">
                   {step.image && (
                     <div className="bangmetricCardImg md:w-[170px] h-[200px] md:h-[100px] rounded-[10px] overflow-hidden shrink-0 md:mr-6 relative">
-                      <Image src={step.image} alt={step.title} fill className="object-cover" />
+                      <Image src={step.image} alt={step.alt ?? "Bangmetric step image"} fill className="object-cover" />
                     </div>
                   )}
                   <h3 className="text-[18px] md:text-[20px] font-bold text-black md:min-w-[130px] shrink-0 leading-snug md:whitespace-pre-line">

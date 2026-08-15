@@ -8,6 +8,7 @@ const pages = [
   { href: "/it-operations-management", label: "IT Operations Management (ITOM)" },
   { href: "/strategic-portfolio-management", label: "Strategic Portfolio Management (SPM)" },
   { href: "/hr-service-delivery", label: "HR Service Delivery (HRSD)" },
+  { href: "/integrated-risk-management", label: "Integrated Risk Management (IRM)" },
 ];
 
 export default function SandboxIndex() {

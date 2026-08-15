@@ -159,7 +159,7 @@ const hrMetrics = [
         title: "Higher portal adoption and self-service",
     },
     {
-        icon: "/images/employee-satisfaction .png",
+        icon: "/images/employee-satisfaction.png",
         title: "Better employee satisfaction",
     },
 ];

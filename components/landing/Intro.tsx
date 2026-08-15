@@ -3,7 +3,8 @@ import MotionReveal from "@/components/landing/MotionReveal";
 
 interface IntroProps {
   heading?: React.ReactNode;
-  paragraphs?: string[];
+  paragraphs?: React.ReactNode[];
+  headingClassName?: string;
 }
 
 const defaultHeading = (
@@ -29,6 +30,7 @@ const defaultParagraphs = [
 export default function Intro({
   heading = defaultHeading,
   paragraphs = defaultParagraphs,
+  headingClassName,
 }: IntroProps) {
   return (
     <section id="intro" className="py-[3.75rem] overflow-hidden">
@@ -37,7 +39,10 @@ export default function Intro({
 
           {/* Left Column: Heading */}
           <div className="lg:col-span-6 w-full">
-            <MotionReveal as="h2" className="text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight leading-[1.15]">
+            <MotionReveal
+              as="h2"
+              className={`text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight leading-[1.15] ${headingClassName ?? ""}`}
+            >
               {heading}
             </MotionReveal>
           </div>

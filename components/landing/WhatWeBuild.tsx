@@ -20,14 +20,14 @@ interface GridCard {
 }
 
 export interface OverlapCard {
-  title: string;
+  title: React.ReactNode;
   image: string;
   features: string[];
 }
 
 export interface WhatWeBuildProps {
-  sectionTitle?: string;
-  subtitle?: string;
+  sectionTitle?: React.ReactNode;
+  subtitle?: React.ReactNode;
   layout?: "grid" | "staggered" | "overlap" | "overlay";
   gridCards?: GridCard[];
   overlayCards?: WhatWeBuildCard[];
@@ -166,13 +166,16 @@ export default function WhatWeBuild({
 
               {/* Grid of overlapping cards */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-5 lg:gap-x-10 gap-y-10 md:gap-y-10">
-                {overlapCards?.map((card, idx) => (
+                {overlapCards?.map((card, idx) => {
+                  const cardTitleText = typeof card.title === "string" ? card.title : "Risk management card";
+
+                  return (
                   <div key={idx} className="w-full rounded-lg overflow-hidden group bg-slate-900/40 border border-slate-800 md:bg-transparent md:border-transparent">
                     {/* Mobile: stacked layout */}
                     <div className="md:hidden relative h-[250px] overflow-hidden rounded-lg">
                       <Image
                         src={card.image}
-                        alt={card.title}
+                        alt={cardTitleText}
                         fill
                         className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
                       />
@@ -195,7 +198,7 @@ export default function WhatWeBuild({
                     <div className="hidden md:block group relative h-[300px] overflow-hidden rounded-lg">
                       <Image
                         src={card.image}
-                        alt={card.title}
+                        alt={cardTitleText}
                         fill
                         className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.05]"
                       />
@@ -214,7 +217,8 @@ export default function WhatWeBuild({
                        </MotionReveal>
                     </div>
                   </div>
-                ))}
+                  )
+                })}
               </div>
             </div>
           </div>

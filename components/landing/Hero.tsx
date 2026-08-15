@@ -5,7 +5,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 interface HeroProps {
-  title?: string;
+  title?: React.ReactNode;
   bannerImage?: string;
   align?: "center" | "left";
 }
@@ -24,6 +24,8 @@ export default function Hero({
     defaultBanner = "/images/it-operations-management-banner.png";
   } else if (pathname === "/hr-service-delivery") {
     defaultBanner = "/images/hr-service-delivery-banner.png";
+  } else if (pathname === "/integrated-risk-management") {
+    defaultBanner = "/images/integrated_risk_management_banner.png";
   }
 
   const finalBannerImage = bannerImage || defaultBanner;
@@ -45,7 +47,7 @@ export default function Hero({
           </div>
 
           {align === "left" ? (
-            <div className="absolute inset-0 flex items-center px-6 sm:px-10 md:px-14 lg:px-16">
+            <div className="absolute inset-0 flex items-center px-6 sm:px-10 md:px-20 lg:px-20">
               <h1 className="font-body font-bold text-white text-[24px] sm:text-[32px] md:text-[48px] lg:text-[64px] leading-tight animate-hero-text opacity-0 text-left">
                 {title}
               </h1>
