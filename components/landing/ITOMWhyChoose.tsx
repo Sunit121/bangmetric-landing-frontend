@@ -54,12 +54,12 @@ export default function ITOMWhyChoose({
 }: ITOMWhyChooseProps) {
 
   return (
-    <section className="py-20 md:py-28 bg-[#F6F5FA] relative z-10">
+    <section className="pt-20 pb-20 md:pt-28 md:pb-20 bg-[#F6F5FA] relative z-10">
       <div className="container">
         <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start`}>
           {/* Left Column */}
           <div className="w-full">
-            <MotionReveal as="h2" className="text-3xl sm:text-4xl md:text-[44px] text-black tracking-tight leading-[1.2] mb-6">
+            <MotionReveal as="h2" className="text-3xl sm:text-4xl md:text-[44px] text-black tracking-tight !leading-[45px] mb-6">
               {heading}
             </MotionReveal>
             <MotionReveal as="div" className="font-body font-normal text-[14px] sm:text-[16px] md:text-[18px] leading-[1.4] text-black" delay={0.1}>
@@ -89,7 +89,7 @@ export default function ITOMWhyChoose({
           <div className="w-full flex flex-col mt-10 lg:mt-0 relative">
             {imageRight ? (
               <MotionReveal as="div" delay={0.2} className="w-full relative h-[350px] sm:h-[400px] lg:h-[500px] flex items-start justify-center lg:justify-end">
-                <div className="relative w-[110%] h-[110%] lg:w-[130%] lg:h-[130%] -top-2 lg:-top-[11.25rem] -right-0 lg:-right-12">
+                <div className="relative w-[110%] h-[110%] lg:w-[130%] lg:h-[130%] -top-2 lg:-top-[11.25rem] -right-0">
                   <Image
                     src={imageRight}
                     alt="Why Choose Us"

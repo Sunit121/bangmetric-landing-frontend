@@ -40,7 +40,7 @@ export default function BangmetricWay({
   layout = "grid",
 }: BangmetricWayProps) {
   return (
-    <section id="methodology" className="pt-[7.5rem] pb-[7.5rem] bg-white overflow-hidden">
+    <section id="methodology" className="pt-[7.5rem] pb-[3rem] bg-[#F6F5FA] overflow-hidden">
       <div className="container">
 
         {/* Header */}
@@ -61,7 +61,7 @@ export default function BangmetricWay({
                 key={index}
                 delay={index * 0.1}
               >
-                <div className="bangmetric-way-card flex flex-col md:flex-row items-start md:items-center bg-[#F6F5FA] rounded-2xl p-6 md:p-[25px] border border-[#BEBEBE] gap-4 md:gap-0">
+                <div className="bangmetric-way-card flex flex-col md:flex-row items-start md:items-center bg-[#EDEDF1] rounded-[10px] p-6 md:p-[25px] border border-[#BEBEBE] gap-4 md:gap-0">
                   {step.image && (
                     <div className="bangmetricCardImg md:w-[170px] h-[200px] md:h-[100px] rounded-[10px] overflow-hidden shrink-0 md:mr-6 relative">
                       <Image src={step.image} alt={step.alt ?? "Bangmetric step image"} fill className="object-cover" />

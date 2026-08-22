@@ -2,8 +2,8 @@ import React from "react";
 import MotionReveal from "@/components/landing/MotionReveal";
 
 interface ThinkNode {
-  bold: string;
-  detail?: string;
+  bold: React.ReactNode;
+  detail?: React.ReactNode;
 }
 
 export interface ThinkDifferentlyProps {
@@ -63,7 +63,7 @@ export default function ThinkDifferently({ nodes = defaultNodes, variant = "hori
   );
 
   return (
-    <section id="services" className="pt-[3.75rem] pb-[7.5rem] bg-white overflow-hidden">
+    <section id="services" className="pt-[7.5rem] pb-[7.5rem] bg-[#F6F5FA] overflow-hidden">
       <style dangerouslySetInnerHTML={{
         __html: `
         @keyframes fiberSpark {

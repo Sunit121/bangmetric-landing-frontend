@@ -14,6 +14,7 @@ interface ResultsProps {
   highlightText?: React.ReactNode;
   metricTextClassName?: string;
   highlightColSpan?: 2 | 3 | 4;
+  highlightClassName?: string;
 }
 
 const defaultMetrics: ResultMetric[] = [
@@ -66,10 +67,11 @@ export default function Results({
   highlightText,
   metricTextClassName = "",
   highlightColSpan = 2,
+  highlightClassName,
 }: ResultsProps) {
   return (
-    <section id="results" className="pt-16 pb-12 sm:pt-20 sm:pb-16 lg:pt-24 lg:pb-20 bg-white overflow-hidden">
-      <div className="max-w-[1100px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16 py-14 sm:py-20 md:py-24">
+    <section id="results" className="pt-16 pb-12 sm:pt-16 sm:pb-16 lg:pt-20 lg:pb-20 overflow-hidden">
+      <div className="max-w-[1100px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16 py-16">
 
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12 lg:mb-16">
@@ -107,7 +109,7 @@ export default function Results({
 
           {/* Desktop highlight — inside grid, hidden on mobile */}
           {highlightText && (
-            <div className={`hidden md:flex col-span-2 ${highlightColSpan === 3 ? 'md:col-span-3' : highlightColSpan === 4 ? 'md:col-span-4' : 'md:col-span-2'} items-center justify-center md:p-4 lg:p-6 lg:pl-10 md:h-auto lg:h-[150px]`}>
+            <div className={`hidden md:flex col-span-2 ${highlightColSpan === 3 ? 'md:col-span-3' : highlightColSpan === 4 ? 'md:col-span-4' : 'md:col-span-2'} items-center justify-center ${highlightClassName ?? 'md:p-4 lg:p-6 lg:pl-10'} md:h-auto lg:h-[150px]`}>
               <h3 className="text-white text-[18px] sm:text-[24px] md:text-[30px] lg:text-[25px] font-bold text-green leading-[1.1]">
                 {highlightText}
               </h3>

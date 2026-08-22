@@ -55,10 +55,10 @@ const irmJumpstartCards = [
       <>
         A structured entry point into modern risk management:<br />
         <br />
-        Policy & Compliance → Risk Register → Automated testing basics → Foundational workflows → Core dashboards.
+        Policy & Compliance → Risk Register → Automated testing basics → Foundational workflows →<br /> Core dashboards.
         <br />
         <br />
-        Built for organisations that need visibility, consistency, and control fast. 
+        Built for organisations that need visibility, consistency, and control fast.
       </>
     ),
   },
@@ -75,11 +75,62 @@ const irmJumpstartCards = [
 ];
 
 const irmThinkNodes = [
-  { bold: "We design IRM around decisions, not documents", detail: "Risk exists so organisations can choose wisely — not just comply." },
-  { bold: "We unify risk, security, operations, and vendor management", detail: "One set of data. One view. One operating rhythm." },
-  { bold: "We make compliance effortless, not administrative", detail: "Automated testing. Clean evidence. Real-time monitoring." },
-  { bold: "We apply AI with intent", detail: "Identifying anomalies, predicting control failures, and prioritising high‑impact issues." },
-  { bold: "We right-size IRM for the mid‑market ", detail: "Lean enough to adopt fast. Powerful enough to scale." },
+  {
+    bold: (
+      <>
+        We design IRM around decisions,
+        <br />
+        not documents
+      </>
+    ),
+    detail: (
+      <>
+        Risk exists so organisations can choose wisely —
+        <br />
+        not just comply.
+      </>
+    ),
+  },
+  {
+    bold: (
+      <>
+        We unify risk, security, operations,
+        <br />
+        and vendor management
+      </>
+    ),
+    detail: "One set of data. One view. One operating rhythm.",
+  },
+  {
+    bold: (
+      <>
+        We make compliance effortless,
+        <br />
+        not administrative
+      </>
+    ),
+    detail: (
+      <>
+        Automated testing. Clean evidence.
+        <br />
+        Real-time monitoring.
+      </>
+    ),
+  },
+  {
+    bold: "We apply AI with intent",
+    detail: (
+      <>
+        Identifying anomalies, predicting control failures, and prioritising high‑impact issues.
+      </>
+    ),
+  },
+  {
+    bold: "We right-size IRM for the mid‑market ",
+    detail: <>
+      Lean enough to adopt fast. Powerful enough<br /> to scale.
+    </>
+  },
 ];
 
 const irmOverlapCards = [
@@ -166,12 +217,16 @@ const irmOverlapCards = [
       <>
         Integration Across
         <br />
-        the Business 
+        the Business
       </>
     ),
     image: "/images/integration.png",
     features: [
-      "Ties into ITSM, SecOps, Procurement, SPM, ITOM",
+      <>
+        Ties into ITSM, SecOps, Procurement,
+        <br />
+        SPM, ITOM
+      </>,
       "End-to-end risk visibility across services, vendors, and operations",
     ]
   }
@@ -304,10 +359,11 @@ export default function IntegratedRiskManagement() {
         metrics={irmMetrics}
         highlightText={
           <>
-            Not because we created more<br/> reports — but because we <br/> created clarity.
+            Not because we created more<br /> reports — but because we <br /> created clarity.
           </>
         }
         highlightColSpan={3}
+        highlightClassName="md:py-4 md:px-0 lg:py-6 lg:px-0"
       />
       <BangmetricWay
         subtitle="When risk is designed properly, resilience grows from clarity"
@@ -318,7 +374,7 @@ export default function IntegratedRiskManagement() {
         paragraphs={[
           <React.Fragment key="1">
             Risk is too important to outsource to a template.<br />
-           <strong>BANGMETRIC brings:</strong> 
+            <strong>BANGMETRIC brings:</strong>
           </React.Fragment>,
         ]}
         points={irmWhyPoints}

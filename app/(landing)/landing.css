@@ -22,6 +22,7 @@
   --container: 80vw;
   --min-container: 70vw;
   --brand-green: #4fca07;
+  --bg-grey: #F6F5FA;
   font-family: Helvetica, Arial, sans-serif;
 }
 
@@ -142,10 +143,12 @@
 /* Keyframes are global by nature, so they carry a bm- prefix to avoid
    colliding with the existing `blob` animation in globals.css. */
 @keyframes bm-cube-pure-float {
+
   0%,
   100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-12px);
   }
@@ -156,13 +159,16 @@
 }
 
 @keyframes bm-space-drift {
+
   0%,
   100% {
     transform: translateY(12px) translateX(0px) rotate(0deg) scale(1);
   }
+
   33% {
     transform: translateY(2px) translateX(4px) rotate(1.5deg) scale(1.01);
   }
+
   66% {
     transform: translateY(-6px) translateX(-4px) rotate(-1.5deg) scale(1.02);
   }
@@ -176,9 +182,11 @@
   0% {
     transform: translateY(0) rotate(0deg) scale(1);
   }
+
   50% {
     transform: translateY(-16px) rotate(180deg) scale(1.05);
   }
+
   100% {
     transform: translateY(0) rotate(360deg) scale(1);
   }
@@ -195,13 +203,16 @@
 }
 
 @keyframes bm-bubble-float {
+
   0%,
   100% {
     transform: translateY(0) scale(1) rotate(0deg);
   }
+
   33% {
     transform: translateY(-12px) scale(1.05) rotate(2deg);
   }
+
   66% {
     transform: translateY(6px) scale(0.97) rotate(-2deg);
   }
@@ -218,10 +229,12 @@
 }
 
 @keyframes bm-hero-zoom {
+
   0%,
   100% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.08);
   }
@@ -235,6 +248,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -249,6 +263,7 @@
     opacity: 0;
     transform: translateY(20px) scale(0.98);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -264,6 +279,7 @@
     opacity: 0;
     transform: translateY(15px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -278,6 +294,7 @@
    fade in. With prefers-reduced-motion the animation never runs, which left
    the whole hero invisible — so pin the end state explicitly. */
 @media (prefers-reduced-motion: reduce) {
+
   .bm-landing .cube-pure-float,
   .bm-landing .space-drift-animate,
   .bm-landing .cube-spin-float-animate,

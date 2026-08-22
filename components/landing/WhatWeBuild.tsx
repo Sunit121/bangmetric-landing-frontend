@@ -10,7 +10,7 @@ interface WhatWeBuildCard {
   desktopImage: string;
   mobileImage?: string;
   heading: React.ReactNode;
-  features: string[];
+  features: React.ReactNode[];
 }
 
 // --- ITOM/SPM 6-card grid types ---
@@ -22,7 +22,7 @@ interface GridCard {
 export interface OverlapCard {
   title: React.ReactNode;
   image: string;
-  features: string[];
+  features: React.ReactNode[];
 }
 
 export interface WhatWeBuildProps {
