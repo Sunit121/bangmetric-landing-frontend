@@ -9,7 +9,7 @@ interface ResultMetric {
 
 interface ResultsProps {
   sectionTitle?: string;
-  subtitle?: string;
+  subtitle?: React.ReactNode;
   metrics?: ResultMetric[];
   highlightText?: React.ReactNode;
   metricTextClassName?: string;
@@ -70,8 +70,8 @@ export default function Results({
   highlightClassName,
 }: ResultsProps) {
   return (
-    <section id="results" className="pt-16 pb-12 sm:pt-16 sm:pb-16 lg:pt-20 lg:pb-20 overflow-hidden">
-      <div className="max-w-[1100px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16 py-16">
+    <section id="results" className="py-[7.5rem] sm:pt-16 sm:py-[3.5rem] lg:py-[7.5rem] overflow-hidden">
+      <div className="max-w-[1100px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16">
 
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12 lg:mb-16">
@@ -109,7 +109,7 @@ export default function Results({
 
           {/* Desktop highlight — inside grid, hidden on mobile */}
           {highlightText && (
-            <div className={`hidden md:flex col-span-2 ${highlightColSpan === 3 ? 'md:col-span-3' : highlightColSpan === 4 ? 'md:col-span-4' : 'md:col-span-2'} items-center justify-center ${highlightClassName ?? 'md:p-4 lg:p-6 lg:pl-10'} md:h-auto lg:h-[150px]`}>
+            <div className={`hidden md:flex col-span-2 ${highlightColSpan === 3 ? 'md:col-span-3' : highlightColSpan === 4 ? 'md:col-span-4' : 'md:col-span-2'} items-center justify-flex-start ${highlightClassName ?? 'md:p-4 lg:p-6 lg:pl-10'} !px-0 md:h-auto lg:h-[150px]`}>
               <h3 className="text-white text-[18px] sm:text-[24px] md:text-[30px] lg:text-[25px] font-bold text-green leading-[1.1]">
                 {highlightText}
               </h3>

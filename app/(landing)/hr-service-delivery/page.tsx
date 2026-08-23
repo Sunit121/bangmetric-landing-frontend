@@ -216,7 +216,12 @@ const hrWhyPoints = [
 export default function HRServiceDelivery() {
     return (
         <>
-                <Hero title="HR Service Delivery" align="left" />
+                <Hero
+                    title="HR Service Delivery"
+                    align="left"
+                    bannerImageClassName="!object-cover !object-[65%_center]"
+                    titleClassName="!text-left"
+                />
                 <Intro
                     heading={hrIntroHeading}
                     paragraphs={hrIntroParagraphs}

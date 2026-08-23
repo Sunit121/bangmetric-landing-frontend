@@ -5,8 +5,9 @@ import Image from "next/image";
 import MotionReveal from "@/components/landing/MotionReveal";
 
 interface WhyPoint {
-  title: string;
+  title: React.ReactNode;
   desc: string;
+  titleClassName?: string;
 }
 
 interface ITOMWhyChooseProps {
@@ -15,13 +16,15 @@ interface ITOMWhyChooseProps {
   points?: WhyPoint[];
   imageRight?: string;
   imageClassName?: string;
+  imageWrapperClassName?: string;
+  imageContainerClassName?: string;
 }
 
 export default function ITOMWhyChoose({
   heading = (
     <>
       Why Organizations <br />
-      Choose BANGMETRIC
+      Choose <strong>BANGMETRIC</strong>
     </>
   ),
   paragraphs = [
@@ -51,6 +54,8 @@ export default function ITOMWhyChoose({
   ],
   imageRight,
   imageClassName,
+  imageWrapperClassName,
+  imageContainerClassName,
 }: ITOMWhyChooseProps) {
 
   return (
@@ -76,7 +81,7 @@ export default function ITOMWhyChoose({
                       <Image src="/images/star-icon.png" alt="Star pointer" width={24} height={24} className="object-contain" />
                     </div>
                     <div className="font-body font-normal text-[14px] sm:text-[16px] md:text-[18px] leading-[1.4] text-black">
-                      <strong className="font-bold text-black">{pt.title}</strong>{" "}
+                      <span className={`${pt.titleClassName ?? "font-bold"} text-black`}>{pt.title}</span>{" "}
                       <span className="text-black">{pt.desc}</span>
                     </div>
                   </MotionReveal>
@@ -88,8 +93,8 @@ export default function ITOMWhyChoose({
           {/* Right Column (List or Image) */}
           <div className="w-full flex flex-col mt-10 lg:mt-0 relative">
             {imageRight ? (
-              <MotionReveal as="div" delay={0.2} className="w-full relative h-[350px] sm:h-[400px] lg:h-[500px] flex items-start justify-center lg:justify-end">
-                <div className="relative w-[110%] h-[110%] lg:w-[130%] lg:h-[130%] -top-2 lg:-top-[11.25rem] -right-0">
+              <MotionReveal as="div" delay={0.2} className={`w-full relative h-[350px] sm:h-[400px] lg:h-[500px] flex items-start justify-center lg:justify-end ${imageContainerClassName ?? ""}`}>
+                <div className={`relative w-[110%] h-[110%] lg:w-[130%] lg:h-[130%] -top-2 lg:-top-[11.25rem] -right-0 ${imageWrapperClassName ?? ""}`}>
                   <Image
                     src={imageRight}
                     alt="Why Choose Us"

@@ -202,6 +202,23 @@
   filter: drop-shadow(0 20px 40px rgba(171, 154, 232, 0.45));
 }
 
+@keyframes bm-sam-pulse-glow {
+  0%,
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 8px 16px rgba(125, 92, 210, 0.12));
+  }
+
+  50% {
+    transform: scale(1.06);
+    filter: drop-shadow(0 16px 26px rgba(125, 92, 210, 0.3));
+  }
+}
+
+:where(.bm-landing) .sam-pulse-glow-animate {
+  animation: bm-sam-pulse-glow 4s ease-in-out infinite;
+}
+
 @keyframes bm-bubble-float {
 
   0%,
@@ -228,6 +245,21 @@
   filter: drop-shadow(0 20px 40px rgba(171, 154, 232, 0.35));
 }
 
+@keyframes bm-ham-tilt {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg) translateY(0);
+  }
+
+  50% {
+    transform: scale(1.03) rotate(1.5deg) translateY(-5px);
+  }
+}
+
+:where(.bm-landing) .ham-tilt-animate {
+  animation: bm-ham-tilt 5s ease-in-out infinite;
+}
+
 @keyframes bm-hero-zoom {
 
   0%,
@@ -242,6 +274,24 @@
 
 :where(.bm-landing) .animate-hero-zoom {
   animation: bm-hero-zoom 20s ease-in-out infinite;
+}
+
+:where(.bm-landing) .animate-hero-zoom-fast {
+  animation: bm-hero-zoom 12s ease-in-out infinite;
+}
+
+@keyframes bm-simple-image-fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+:where(.bm-landing) .simple-image-fade {
+  animation: bm-simple-image-fade 0.8s ease-out forwards;
 }
 
 @keyframes bm-hero-section-fade {

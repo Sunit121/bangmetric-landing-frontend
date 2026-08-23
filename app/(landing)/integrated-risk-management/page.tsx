@@ -380,6 +380,7 @@ export default function IntegratedRiskManagement() {
         points={irmWhyPoints}
         imageRight="/images/integrated_risk_management_3d.png"
         imageClassName="bubble-float-animate"
+        imageWrapperClassName="lg:!w-[90%] lg:!h-[90%] lg:!top-0 lg:!right-0"
       />
       <BottomCTA
         subtitle="Read Customer Success Stories & News on"

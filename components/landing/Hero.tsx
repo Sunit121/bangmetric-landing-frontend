@@ -8,12 +8,22 @@ interface HeroProps {
   title?: React.ReactNode;
   bannerImage?: string;
   align?: "center" | "left";
+  titleClassName?: string;
+  titleColor?: string;
+  bannerImageClassName?: string;
+  bannerClassName?: string;
+  bannerOverlayClassName?: string;
 }
 
 export default function Hero({
   title = "IT Service Management",
   bannerImage,
   align = "center",
+  titleClassName = "",
+  titleColor,
+  bannerImageClassName = "",
+  bannerClassName = "",
+  bannerOverlayClassName = "",
 }: HeroProps) {
   const pathname = usePathname();
 
@@ -27,13 +37,16 @@ export default function Hero({
   } else if (pathname === "/integrated-risk-management") {
     defaultBanner = "/images/integrated_risk_management_banner.png";
   }
+  else if (pathname === "/hardware-asset-management") {
+    defaultBanner = "/images/ham_banner.png";
+  }
 
   const finalBannerImage = bannerImage || defaultBanner;
 
   return (
     <section className="w-full flex justify-center pt-28 md:pt-24 lg:pt-28">
       <div className="w-full mx-auto px-4 md:px-8 lg:px-10 pb-0 relative z-20">
-        <div className=" relative w-full h-[220px] sm:h-[280px] md:h-[340px] lg:h-[404px] rounded-[20px] overflow-hidden flex items-center justify-center ">
+        <div className={`relative w-full h-[220px] sm:h-[280px] md:h-[340px] lg:h-[404px] rounded-[20px] overflow-hidden flex items-center justify-center ${bannerClassName}`}>
           <div className="absolute inset-0">
             <Image
               src={finalBannerImage}
@@ -42,9 +55,12 @@ export default function Hero({
               quality={100}
               priority
               unoptimized
-              className="object-cover animate-hero-zoom"
+              className={`object-cover animate-hero-zoom ${bannerImageClassName}`}
             />
           </div>
+          {bannerOverlayClassName && (
+            <div className={`absolute inset-0 ${bannerOverlayClassName}`} />
+          )}
 
           {align === "left" ? (
             <div
@@ -53,13 +69,13 @@ export default function Hero({
                 : "px-10 sm:px-8 md:px-20 lg:px-32"
                 }`}
             >
-              <h1 className="font-body font-bold text-white text-[24px] sm:text-[32px] md:text-[48px] lg:text-[64px] leading-tight animate-hero-text opacity-0 text-left">
+              <h1 style={titleColor ? { color: titleColor } : undefined} className={`font-body font-bold text-white text-[24px] sm:text-[32px] md:text-[48px] lg:text-[64px] leading-tight animate-hero-text opacity-0 text-left ${titleClassName}`}>
                 {title}
               </h1>
             </div>
           ) : (
             <div className="absolute inset-0 flex items-center justify-center">
-              <h1 className="font-body font-bold text-white text-[24px] sm:text-[32px] md:text-[48px] lg:text-[64px] leading-tight text-center animate-hero-text opacity-0">
+              <h1 style={titleColor ? { color: titleColor } : undefined} className={`font-body font-bold text-white text-[24px] sm:text-[32px] md:text-[48px] lg:text-[64px] leading-tight text-center animate-hero-text opacity-0 ${titleClassName}`}>
                 {title}
               </h1>
             </div>

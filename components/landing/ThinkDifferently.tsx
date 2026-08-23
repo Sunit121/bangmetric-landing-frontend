@@ -105,7 +105,7 @@ export default function ThinkDifferently({ nodes = defaultNodes, variant = "hori
             as="h2"
             className="text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight leading-tight"
           >
-            How BANGMETRIC Thinks Differently
+            How <strong>BANGMETRIC</strong> Thinks Differently
           </MotionReveal>
         </div>
 
@@ -330,15 +330,14 @@ export default function ThinkDifferently({ nodes = defaultNodes, variant = "hori
                 <CircleDot size={20} />
               </div>
               <div className="pl-3">
-                <MotionReveal as="p" className="text-base dark:text-slate-200 leading-relaxed !text-[14px]">
+                <MotionReveal as="p" className="text-base dark:text-slate-200 leading-relaxed !text-[14px] font-bold">
                   <span className="dark:text-white">{node.bold}</span>
-                  {node.detail && (
-                    <>
-                      {" "}
-                      <span className="dark:text-slate-400">{node.detail}</span>
-                    </>
-                  )}
                 </MotionReveal>
+                {node.detail && (
+                  <MotionReveal as="p" className="text-base dark:text-slate-200 leading-relaxed !text-[14px] mt-1" delay={0.05}>
+                    <span className="dark:text-slate-400">{node.detail}</span>
+                  </MotionReveal>
+                )}
               </div>
             </div>
           ))}

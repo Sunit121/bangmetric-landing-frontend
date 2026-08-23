@@ -40,13 +40,13 @@ export default function BangmetricWay({
   layout = "grid",
 }: BangmetricWayProps) {
   return (
-    <section id="methodology" className="pt-[7.5rem] pb-[3rem] bg-[#F6F5FA] overflow-hidden">
+    <section id="methodology" className="pt-20 md:pt-[7.5rem] pb-[3rem] bg-[#F6F5FA] overflow-hidden">
       <div className="container">
 
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-20">
+        <div className="text-center max-w-2xl mx-auto mb-8 md:mb-20">
           <MotionReveal as="h2" className="text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight leading-tight">
-            The BANGMETRIC Way
+            The <strong>BANGMETRIC</strong> Way
           </MotionReveal>
           {/* <MotionReveal as="p" className="mt-4 text-base md:text-lg text-slate-600 font-light" delay={0.1}>
             {subtitle}

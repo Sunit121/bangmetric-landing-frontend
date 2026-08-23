@@ -16,6 +16,9 @@ interface JumpstartsProps {
   buttonText?: string;
   cubeImage?: string | null | false;
   imageAnimationClass?: string;
+  imageContainerClassName?: string;
+  topAreaClassName?: string;
+  sectionClassName?: string;
 }
 
 const defaultCards: JumpstartCard[] = [
@@ -56,13 +59,16 @@ export default function Jumpstarts({
   buttonText = "Download Now",
   cubeImage = "/images/cube.png",
   imageAnimationClass = "cube-spin-float-animate",
+  imageContainerClassName = "",
+  topAreaClassName = "",
+  sectionClassName = "",
 }: JumpstartsProps) {
   return (
-    <section id="jumpstarts" className="py-20 md:py-28 bg-white overflow-hidden">
+    <section id="jumpstarts" className={`py-20 md:py-28 bg-white overflow-hidden ${sectionClassName}`}>
       <div className="container">
 
         {/* Top area: Title on the left, Cube image on the right */}
-        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8 mb-14">
+        <div className={`flex flex-col md:flex-row md:items-start md:justify-between gap-8 mb-14 ${topAreaClassName}`}>
           <div className="flex-1 max-w-2xl">
             <MotionReveal
               as="h2"
@@ -76,7 +82,7 @@ export default function Jumpstarts({
           </div>
 
           {cubeImage && (
-            <div id="cube-start-placeholder" className="flex-shrink-0 flex justify-center md:justify-end w-36 h-36 sm:w-44 sm:h-44 md:w-[17.5rem] md:h-60 relative">
+            <div id="cube-start-placeholder" className={`flex-shrink-0 flex justify-center md:justify-end w-36 h-36 sm:w-44 sm:h-44 md:w-[17.5rem] md:h-60 relative ${imageContainerClassName}`}>
               <Image
                 src={cubeImage}
                 alt="3D crystal cube"

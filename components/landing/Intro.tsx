@@ -12,7 +12,7 @@ const defaultHeading = (
     Designed from the <br className="hidden md:inline" />
     employee and <br className="hidden md:inline" />
     business back. <br />
-    <span className="inline-block mt-2 text-slate-900">
+    <span className="inline-block mt-1 text-slate-900">
       Built on{" "}
       <span className="text-brand-green relative inline-block">
         ServiceNow

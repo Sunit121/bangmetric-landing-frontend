@@ -9,6 +9,8 @@ const pages = [
   { href: "/strategic-portfolio-management", label: "Strategic Portfolio Management (SPM)" },
   { href: "/hr-service-delivery", label: "HR Service Delivery (HRSD)" },
   { href: "/integrated-risk-management", label: "Integrated Risk Management (IRM)" },
+  { href: "/software-asset-management", label: "Software Asset Management (SAM)" },
+  { href: "/hardware-asset-management", label: "Hardware Asset Management (HAM)" },
 ];
 
 export default function SandboxIndex() {

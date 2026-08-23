@@ -78,7 +78,7 @@ export default function WhatWeBuild({
   return (
     <section
       id="what-we-build"
-      className="py-24 relative overflow-hidden bg-black text-white bg-cover bg-center bg-no-repeat"
+      className="py-[7.5rem] relative overflow-hidden bg-black text-white bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: "url('/images/build-with-service-bg.png')" }}
     >
       <div className="max-w-[1100px] mx-auto px-3 md:px-4 relative z-20">
