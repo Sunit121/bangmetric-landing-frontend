@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import MotionReveal from "@/components/landing/MotionReveal";
@@ -39,8 +41,55 @@ export default function BangmetricWay({
   steps = defaultSteps,
   layout = "grid",
 }: BangmetricWayProps) {
+  const [activeIndex, setActiveIndex] = React.useState<number>(0);
+  const [isMobile, setIsMobile] = React.useState<boolean>(false);
+  const containerRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  React.useEffect(() => {
+    if (!isMobile) return;
+
+    const handleScroll = () => {
+      if (!containerRef.current) return;
+      const cards = containerRef.current.querySelectorAll(".bangmetric-card-wrapper");
+      if (!cards || cards.length === 0) return;
+
+      const viewportCenter = window.innerHeight / 2;
+      let closestIndex = 0;
+      let closestDistance = Infinity;
+
+      cards.forEach((card, index) => {
+        const rect = card.getBoundingClientRect();
+        const cardCenter = rect.top + rect.height / 2;
+        const distance = Math.abs(cardCenter - viewportCenter);
+
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIndex = index;
+        }
+      });
+
+      setActiveIndex(closestIndex);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isMobile]);
+
   return (
-    <section id="methodology" className="pt-20 md:pt-[7.5rem] pb-[3rem] bg-[#F6F5FA] overflow-hidden">
+    <section id="methodology" className="pt-20 md:pt-[7.5rem] pb-[3rem] bg-[#F6F5FA] overflow-hidden" ref={containerRef}>
       <div className="container">
 
         {/* Header */}
@@ -54,51 +103,113 @@ export default function BangmetricWay({
         </div>
 
         {layout === "vertical-cards" ? (
-          <div className="flex flex-col gap-6 max-w-[800px] mx-auto">
-            {steps.map((step, index) => (
-              <MotionReveal
-                as="div"
-                key={index}
-                delay={index * 0.1}
-              >
-                <div className="bangmetric-way-card flex flex-col md:flex-row items-start md:items-center bg-[#EDEDF1] rounded-[10px] p-6 md:p-[25px] border border-[#BEBEBE] gap-4 md:gap-0">
-                  {step.image && (
-                    <div className="bangmetricCardImg md:w-[170px] h-[200px] md:h-[100px] rounded-[10px] overflow-hidden shrink-0 md:mr-6 relative">
-                      <Image src={step.image} alt={step.alt ?? "Bangmetric step image"} fill className="object-cover" />
-                    </div>
-                  )}
-                  <h3 className="text-[18px] md:text-[20px] font-bold text-black md:min-w-[130px] shrink-0 leading-snug md:whitespace-pre-line">
-                    {step.title}
-                  </h3>
-                  <div className="hidden md:block w-[1px] h-[60px] bg-black opacity-50 mx-5 shrink-0"></div>
-                  <p className="!text-[14px] sm:text-[13px] leading-[1.5] font-medium">
-                    {step.desc}
-                  </p>
-                </div>
-              </MotionReveal>
-            ))}
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="relative flex flex-col gap-8 max-w-[800px] mx-auto">
             {steps.map((step, index) => {
+              const isActive = activeIndex === index;
               return (
                 <div
                   key={index}
-                  className="relative flex items-center group transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5"
+                  className="bangmetric-card-wrapper relative z-10 pt-4 md:pt-0"
+                  data-index={index}
                 >
-                  <div className="absolute -left-2 sm:-left-4 top-1/2 -translate-y-1/2 w-[24px] h-[24px] sm:w-[30px] sm:h-[30px] rounded-full bg-[#D8CDFF] border-2 border-transparent shadow-md z-10 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110 group-hover:bg-[#9383DC] group-hover:border-white group-hover:shadow-[0_0_15px_rgba(147,131,220,0.6)] flex items-center justify-center overflow-visible">
-                    <span className="absolute inset-0 rounded-full bg-[#9383DC] opacity-0 group-hover:animate-ping group-hover:opacity-40" style={{ animationDuration: '1.5s' }} />
-                  </div>
-                  <div
-                    className="w-full min-h-[120px] rounded-[10px] flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-0 p-[30px] sm:px-6 sm:py-4 md:px-8 border border-[#D8D8D8] bg-transparent text-black transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:bg-[#9383DC] group-hover:text-white group-hover:border-[#9383DC] group-hover:[box-shadow:3px_-2px_4.3px_0px_#4D2A7C_inset,2px_3px_4.3px_0px_#00000040]"
+                  <MotionReveal
+                    as="div"
+                    delay={index * 0.1}
                   >
-                    <div className="sm:w-[180px] text-[14px] sm:text-[16px] md:text-[18px] font-semibold leading-tight shrink-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1.5">
+                    <div className={`bangmetric-way-card relative flex flex-col md:flex-row items-start md:items-center rounded-[10px] p-6 md:p-[25px] border-0 md:border gap-4 md:gap-0 transition-all duration-300
+                      ${isActive
+                        ? 'bg-[#9383DC] text-white shadow-[2px_3px_4.3px_0px_#00000040]'
+                        : 'bg-[#EDEDF1] text-black'
+                      } 
+                      md:bg-[#EDEDF1] md:text-black md:border-[#BEBEBE] md:shadow-none`}
+                    >
+                      {/* Dot on mobile */}
+                      <div className={`absolute left-1/2 -translate-x-1/2 top-[-14px] w-[24px] h-[24px] rounded-full border-2 border-transparent shadow-md transition-all duration-300 flex items-center justify-center overflow-visible md:hidden z-20 bg-[#CFC4FF]
+                        ${isActive
+                          ? 'scale-110'
+                          : ''
+                        }`}
+                      >
+                        <span className={`absolute inset-0 rounded-full bg-[#9383DC] opacity-0 transition-opacity duration-300
+                          ${isActive ? 'animate-ping opacity-40' : ''}`}
+                          style={{ animationDuration: '1.5s' }}
+                        />
+                      </div>
+                      {step.image && (
+                        <div className="bangmetricCardImg hidden md:block md:w-[170px] md:h-[100px] rounded-[10px] overflow-hidden shrink-0 md:mr-6 relative">
+                          <Image src={step.image} alt={step.alt ?? "Bangmetric step image"} fill className="object-cover" />
+                        </div>
+                      )}
+                      <h3 className={`text-[15px] md:text-[20px] font-bold md:min-w-[130px] shrink-0 leading-snug md:whitespace-pre-line transition-colors duration-300
+                        ${isActive ? 'text-white' : 'text-black'} md:text-black`}
+                      >
+                        {step.title}
+                      </h3>
+                      <div className={`hidden md:block w-[1px] h-[60px] mx-5 shrink-0 transition-colors duration-300
+                        ${isActive ? 'bg-white opacity-100' : 'bg-black opacity-50'}`}
+                      />
+                      <p className={`!text-[14px] sm:text-[13px] leading-[1.5] font-medium transition-colors duration-300
+                        ${isActive ? 'text-white opacity-100' : 'text-slate-600'} md:text-inherit`}
+                      >
+                        {step.desc}
+                      </p>
+                    </div>
+                  </MotionReveal>
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative">
+            {steps.map((step, index) => {
+              const isActive = activeIndex === index;
+              return (
+                <div
+                  key={index}
+                  className="bangmetric-card-wrapper relative flex items-center group transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5 z-10 pt-4 sm:pt-0"
+                  data-index={index}
+                >
+                  {/* Card */}
+                  <div
+                    className={`w-full min-h-[120px] rounded-[10px] flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-0 p-[30px] sm:px-6 sm:py-4 md:px-8 border-0 sm:border transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] relative
+                      ${isActive
+                        ? 'bg-[#9383DC] text-white [box-shadow:3px_-2px_4.3px_0px_#4D2A7C_inset,2px_3px_4.3px_0px_#00000040]'
+                        : 'bg-[#EDEDF1] text-black'
+                      }
+                      sm:bg-transparent sm:text-black sm:border-[#D8D8D8] sm:shadow-none
+                      sm:group-hover:bg-[#9383DC] sm:group-hover:text-white sm:group-hover:border-[#9383DC] sm:group-hover:[box-shadow:3px_-2px_4.3px_0px_#4D2A7C_inset,2px_3px_4.3px_0px_#00000040]`}
+                  >
+                    {/* Dot */}
+                    <div className={`absolute left-1/2 -translate-x-1/2 top-[-14px] sm:left-[-15px] sm:top-1/2 sm:-translate-y-1/2 sm:-translate-x-0 w-[24px] h-[24px] sm:w-[30px] sm:h-[30px] rounded-full border-2 border-transparent shadow-md z-20 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] flex items-center justify-center overflow-visible bg-[#CFC4FF]
+                      ${isActive
+                        ? 'scale-110'
+                        : ''
+                      }
+                      sm:group-hover:scale-110 sm:group-hover:border-white sm:group-hover:shadow-[0_0_15px_rgba(147,131,220,0.6)]`}
+                    >
+                      <span className={`absolute inset-0 rounded-full bg-[#9383DC] opacity-0 transition-opacity duration-300
+                        ${isActive ? 'animate-ping opacity-40' : ''}
+                        sm:group-hover:animate-ping sm:group-hover:opacity-40`}
+                        style={{ animationDuration: '1.5s' }}
+                      />
+                    </div>
+                    <div className={`sm:w-[180px] text-[15px] sm:text-[16px] md:text-[18px] font-semibold leading-tight shrink-0 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]
+                      ${isActive ? 'text-white' : 'text-black'}
+                      sm:text-black sm:group-hover:translate-x-1.5 sm:group-hover:text-white`}
+                    >
                       {step.title}
                     </div>
                     <div
-                      className="hidden sm:block w-[1.5px] h-[60px] shrink-0 bg-black transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-y-[1.15] origin-center"
+                      className={`hidden sm:block w-[1.5px] h-[60px] shrink-0 bg-black transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-y-[1.15] origin-center
+                        sm:group-hover:bg-white`}
                     />
-                    <MotionReveal as="p" className="bangmetric-way-desc leading-[1.5] flex-1 pl-0 sm:pl-5 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1" delay={index * 0.1}>
+                    <MotionReveal
+                      as="p"
+                      className={`bangmetric-way-desc leading-[1.5] flex-1 pl-0 sm:pl-5 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]
+                        ${isActive ? 'text-white' : 'text-slate-600'}
+                        sm:text-inherit sm:group-hover:translate-x-1 sm:group-hover:text-white`}
+                      delay={index * 0.1}
+                    >
                       {step.desc}
                     </MotionReveal>
                   </div>

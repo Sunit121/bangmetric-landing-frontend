@@ -364,6 +364,11 @@
 
 /* ── Mobile ───────────────────────────────────────────────────────────── */
 @media (max-width: 767px) {
+  :where(.bm-landing) .container {
+    width: auto !important;
+    margin: 0 15px !important;
+  }
+
   :where(.bm-landing) h2 {
     font-size: 30px !important;
   }
