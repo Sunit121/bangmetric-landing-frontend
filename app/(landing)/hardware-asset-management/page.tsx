@@ -41,7 +41,7 @@ const irmIntroParagraphs = [
   <>
     Every device has a lifecycle, from request to retirement. When that lifecycle
     isn’t designed properly, hardware becomes reactive, costly, and difficult to track.
-    At <strong>BANGMETRIC</strong>, we design <strong>ServiceNow Hardware Asset Management (HAM)</strong>
+    At <strong>BANGMETRIC</strong>, we design <strong>ServiceNow Hardware Asset Management (HAM) </strong>
     around full asset visibility, bringing clarity and control to every stage.
   </>,
   <>
