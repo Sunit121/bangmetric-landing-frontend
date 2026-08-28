@@ -7,7 +7,7 @@ import MotionReveal from "@/components/landing/MotionReveal";
 interface BangmetricStep {
   title: React.ReactNode;
   alt?: string;
-  desc: string;
+  desc: React.ReactNode;
   image?: string;
 }
 
@@ -116,7 +116,7 @@ export default function BangmetricWay({
                     as="div"
                     delay={index * 0.1}
                   >
-                    <div className={`bangmetric-way-card relative flex flex-col md:flex-row items-start md:items-center rounded-[10px] p-6 md:p-[25px] border-0 md:border gap-4 md:gap-0 transition-all duration-300
+                    <div className={`bangmetric-way-card group relative flex flex-col md:flex-row items-start md:items-center rounded-[10px] p-6 md:p-[25px] border-0 md:border gap-4 md:gap-0 transition-all duration-300
                       ${isActive
                         ? 'bg-[#9383DC] text-white shadow-[2px_3px_4.3px_0px_#00000040]'
                         : 'bg-[#EDEDF1] text-black'
@@ -145,9 +145,7 @@ export default function BangmetricWay({
                       >
                         {step.title}
                       </h3>
-                      <div className={`hidden md:block w-[1px] h-[60px] mx-5 shrink-0 transition-colors duration-300
-                        ${isActive ? 'bg-white opacity-100' : 'bg-black opacity-50'}`}
-                      />
+                      <div className="hidden md:block w-[1px] h-[60px] mx-5 shrink-0 transition-colors duration-300 bg-black group-hover:bg-white" />
                       <p className={`!text-[14px] sm:text-[13px] leading-[1.5] font-medium transition-colors duration-300
                         ${isActive ? 'text-white opacity-100' : 'text-slate-600'} md:text-inherit`}
                       >

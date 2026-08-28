@@ -40,15 +40,15 @@ const irmIntroHeading = (
 const irmIntroParagraphs = [
   <>
     Every device has a lifecycle, from request to retirement. When that lifecycle
-isn’t designed properly, hardware becomes reactive, costly, and difficult to track.
-At <strong>BANGMETRIC</strong>, we design <strong>ServiceNow Hardware Asset Management (HAM)</strong>
-around full asset visibility, bringing clarity and control to every stage.
+    isn’t designed properly, hardware becomes reactive, costly, and difficult to track.
+    At <strong>BANGMETRIC</strong>, we design <strong>ServiceNow Hardware Asset Management (HAM)</strong>
+    around full asset visibility, bringing clarity and control to every stage.
   </>,
   <>
-  <strong>We streamline procurement, stockrooms, assignments, refresh cycles, and
-retirement</strong> with smart automation and real-time tracking. The result is accurate
-inventory, controlled spend, smoother onboarding, and audit-ready compliance.
-ServiceNow HAM is the platform. Lifecycle design makes it powerful.
+    <strong>We streamline procurement, stockrooms, assignments, refresh cycles, and
+      retirement</strong> with smart automation and real-time tracking. The result is accurate
+    inventory, controlled spend, smoother onboarding, and audit-ready compliance.
+    ServiceNow HAM is the platform. Lifecycle design makes it powerful.
   </>
 ];
 
@@ -60,14 +60,14 @@ const irmJumpstartCards = [
         For organisations that need visibility, control, and lifecycle basics fast. <br />
         <br />
         <ul className="list-disc list-inside">
-            <li>Stockrooms</li>
-            <li>Receiving</li>
-            <li>Normalisation</li>
-            <li>Core lifecycle workflows</li>
-            <li>Foundational dashboards</li>
+          <li>Stockrooms</li>
+          <li>Receiving</li>
+          <li>Normalisation</li>
+          <li>Core lifecycle workflows</li>
+          <li>Foundational dashboards</li>
         </ul>
-         <br/>
-            Designed to bring order, accuracy, and auditability quickly.
+        <br />
+        Designed to bring order, accuracy, and auditability quickly.
       </>
     ),
   },
@@ -78,15 +78,15 @@ const irmJumpstartCards = [
         For organisations ready for connected, intelligent lifecycle management.<br />
         <br />
         <ul className="list-disc list-inside">
-            <li>Mobile operations</li>
-            <li>HR onboarding integration</li>
-            <li>Asset bundles</li>
-            <li>Refresh automation</li>
-            <li>Compliance & contracts</li>
-            <li>Lifecycle forecasting dashboards</li>
+          <li>Mobile operations</li>
+          <li>HR onboarding integration</li>
+          <li>Asset bundles</li>
+          <li>Refresh automation</li>
+          <li>Compliance & contracts</li>
+          <li>Lifecycle forecasting dashboards</li>
         </ul>
         <br />
-        A complete, modern HAM foundation, delivered with intent, not complexity.
+        A complete, modern HAM foundation, delivered with intent,<br /> not complexity.
       </>
     ),
   },
@@ -96,60 +96,60 @@ const irmThinkNodes = [
   {
     bold: (
       <>
-        We design around the<br/> lifecycle, not the stockroom
+        We design around the<br /> lifecycle, not the stockroom
       </>
     ),
     detail: (
       <>
-        Everything begins and ends<br/>
-with the movement of the asset.
+        Everything begins and ends<br />
+        with the movement of the asset.
       </>
     ),
   },
   {
     bold: (
       <>
-       We right-size <br/> for the mid‑market
+        We right-size <br /> for the mid‑market
       </>
     ),
     detail: (
-    <>
-    Lean, simple, and efficient —<br/> no bloated processes.
-    </>
+      <>
+        Lean, simple, and efficient —<br /> no bloated processes.
+      </>
     ),
   },
   {
     bold: (
       <>
-       We prioritise accuracy<br/> over volumege
+        We prioritise accuracy<br /> over volumege
       </>
     ),
     detail: (
       <>
-       A small set of trusted records beats<br/> a massive set of noisy ones.
+        A small set of trusted records beats<br /> a massive set of noisy ones.
       </>
     ),
   },
   {
     bold: (
-        <>
-        We use automation<br/> with intent
-        </>
+      <>
+        We use automation<br /> with intent
+      </>
     ),
     detail: (
       <>
-        Auto-receiving, reconciliation, refresh<br/> cycles, and compliance triggers that remove<br/> manual work.
+        Auto-receiving, reconciliation, refresh cycles, and compliance triggers that remove manual work.
       </>
     ),
   },
   {
     bold: (
-        <>
-       We connect HAM<br/> to the broader ecosystem
-        </>
+      <>
+        We connect HAM<br /> to the broader ecosystem
+      </>
     ),
     detail: (<>
-      HR onboarding → ITSM requests→ <br/> Procurement → Finance → <br/>ITAM → Offboarding.
+      HR onboarding → ITSM requests→ <br /> Procurement → Finance → <br />ITAM → Offboarding.
     </>
     ),
   },
@@ -159,12 +159,12 @@ const irmOverlapCards = [
   {
     title: (
       <>
-      Complete Hardware<br/> Lifecycle Management
+        Complete Hardware<br /> Lifecycle Management
       </>
     ),
     image: "/images/hardware-lifecycle.png",
     features: [
-      "Procurement → receiving → assignment → refresh → retirement ",
+      <>Procurement → receiving → assignment <br />→ refresh → retirement </>,
       "Automated workflows for every stage ",
       "Clear ownership and chain of custody ",
     ]
@@ -172,7 +172,7 @@ const irmOverlapCards = [
   {
     title: (
       <>
-        Mobile-enabled<br/> Operations
+        Mobile-enabled<br /> Operations
       </>
     ),
     image: "/images/mobile‑enabled-operations.png",
@@ -185,7 +185,7 @@ const irmOverlapCards = [
   {
     title: (
       <>
-       Stockrooms &<br/> Inventory Control
+        Stockrooms &<br /> Inventory Control
       </>
     ),
     image: "/images/inventory-control.png",
@@ -199,7 +199,7 @@ const irmOverlapCards = [
   {
     title: (
       <>
-        Asset Visibility<br/> & Compliance 
+        Asset Visibility<br /> & Compliance
       </>
     ),
     image: "/images/asset-visibility.png",
@@ -225,10 +225,10 @@ const irmOverlapCards = [
       "Finance reconciliation"
     ]
   },
-    {
+  {
     title: (
       <>
-       HAM Intelligence
+        HAM Intelligence
       </>
     ),
     image: "/images/ham-intelligence.png",
@@ -239,7 +239,7 @@ const irmOverlapCards = [
       "Automated asset bundling"
     ]
   }
-  
+
 ];
 
 const irmMetrics = [
@@ -271,7 +271,7 @@ const irmMetrics = [
     icon: "/images/improved-hardware.png",
     title: "Improved hardware experience for employees",
   },
-   {
+  {
     icon: "/images/stronger-governance.png",
     title: "Stronger governance across locations & teams",
   },
@@ -280,7 +280,11 @@ const irmMetrics = [
 const irmBangmetricSteps = [
   {
     title: "Discover\n & Design",
-    desc: "We assess spend, usage, contracts, and entitlements, then design SAM around cost, compliance, and control.",
+    desc: (
+      <>
+        We assess spend, usage, contracts, and entitlements,<br /> then design SAM around cost, compliance, and control.
+      </>
+    ),
     image: "/images/discover.png"
   },
   {
@@ -312,7 +316,7 @@ const irmWhyPoints = [
     titleClassName: "font-normal",
   },
   {
-    title: <><strong>Cross-functional</strong> expertise (IT, HR, Finance, Procurement)</>,
+    title: <><strong>Cross-functional</strong> expertise (IT, HR,<br /> Finance, Procurement)</>,
     desc: "",
     titleClassName: "font-normal",
   },
@@ -381,11 +385,11 @@ export default function IntegratedRiskManagement() {
       />
       <Results
         sectionTitle="The Results Our Clients See"
-        subtitle={<>When <strong>HAM</strong> is designed properly, the business gains control and confidence:</>}
+        subtitle={<>When <strong>HAM</strong> is designed properly, the business gains control<br /> and confidence:</>}
         metrics={irmMetrics}
         highlightText={
           <>
-            Not because we track<br /> more data, but because<br/> we track the right things<br/> the right way.
+            Not because we track<br /> more data, but because<br /> we track the right things<br /> the right way.
           </>
         }
         highlightColSpan={2}
@@ -399,7 +403,7 @@ export default function IntegratedRiskManagement() {
       <ITOMWhyChoose
         paragraphs={[
           <React.Fragment key="1">
-            Software spending shouldn't be a black box. <br/>And audits shouldn't require a war room.
+            Software spending shouldn't be a black box. <br />And audits shouldn't require a war room.
           </React.Fragment>,
         ]}
         points={irmWhyPoints}

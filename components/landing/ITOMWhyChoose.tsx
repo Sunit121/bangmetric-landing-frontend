@@ -64,7 +64,7 @@ export default function ITOMWhyChoose({
         <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start`}>
           {/* Left Column */}
           <div className="w-full">
-            <MotionReveal as="h2" className="text-3xl sm:text-4xl md:text-[44px] text-black tracking-tight !leading-[45px] mb-6">
+            <MotionReveal as="h2" className="text-3xl sm:text-4xl md:text-[44px] text-black tracking-tight !leading-[1.15] mb-6">
               {heading}
             </MotionReveal>
             <MotionReveal as="div" className="font-body font-normal text-[14px] sm:text-[16px] md:text-[18px] leading-[1.4] text-black" delay={0.1}>
