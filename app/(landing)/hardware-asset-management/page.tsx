@@ -391,7 +391,7 @@ export default function IntegratedRiskManagement() {
         metrics={irmMetrics}
         highlightText={
           <>
-            Not because we track<br /> more data, but because<br /> we track the right things<br /> the right way.
+            Not because we track more data, but because we track the right things the right way.
           </>
         }
         highlightColSpan={2}
