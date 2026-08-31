@@ -149,7 +149,7 @@ const irmThinkNodes = [
       </>
     ),
     detail: (<>
-      HR onboarding → ITSM requests→ <br /> Procurement → Finance → <br />ITAM → Offboarding.
+      HR onboarding → ITSM requests → <br /> Procurement → Finance → <br />ITAM → Offboarding.
     </>
     ),
   },
@@ -245,7 +245,9 @@ const irmOverlapCards = [
 const irmMetrics = [
   {
     icon: "/images/asset-administration.png",
-    title: "40–60% reduction in manual asset administration",
+    title: (<>
+      40–60% reduction<br /> in manual asset administration
+    </>),
   },
   {
     icon: "/images/employee-onboarding.png",
