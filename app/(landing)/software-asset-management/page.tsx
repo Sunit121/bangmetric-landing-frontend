@@ -24,11 +24,11 @@ export const metadata: Metadata = {
   },
 };
 
-const irmIntroHeading = (
+const samIntroHeading = (
   <>
     Designed from the<br className="hidden md:inline" />
     entitlement back<br className="hidden md:inline" />
-    <span className="inline-block mt-2 text-slate-900">
+    <span className="inline-block text-slate-900">
       Built on{" "}
       <span className="text-green relative inline-block">
         ServiceNow
@@ -37,7 +37,7 @@ const irmIntroHeading = (
   </>
 );
 
-const irmIntroParagraphs = [
+const samIntroParagraphs = [
   <>
     Software spend can quickly become difficult to control when licenses, contracts,
 usage, and renewals are scattered across teams and tools. At <strong>BANGMETRIC</strong>,
@@ -355,9 +355,8 @@ export default function IntegratedRiskManagement() {
         titleClassName="!text-left"
       />
       <Intro
-        heading={irmIntroHeading}
-        paragraphs={irmIntroParagraphs}
-        headingClassName="!leading-[1.1]"
+        heading={samIntroHeading}
+        paragraphs={samIntroParagraphs}
       />
       <Jumpstarts
         cubeImage="/images/sam-jumpstart.png"

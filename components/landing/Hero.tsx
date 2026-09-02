@@ -65,7 +65,7 @@ export default function Hero({
           {align === "left" ? (
             <div
               className={`absolute inset-0 flex items-center ${pathname === "/integrated-risk-management"
-                ? "px-14 sm:px-16 md:px-28 lg:px-36"
+                ? "container px-0"
                 : "px-10 sm:px-8 md:px-20 lg:px-32"
                 }`}
             >

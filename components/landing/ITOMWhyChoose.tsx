@@ -6,7 +6,7 @@ import MotionReveal from "@/components/landing/MotionReveal";
 
 interface WhyPoint {
   title: React.ReactNode;
-  desc: string;
+  desc: React.ReactNode;
   titleClassName?: string;
 }
 

@@ -28,7 +28,7 @@ const irmIntroHeading = (
   <>
     Designed for<br className="hidden md:inline" />
     Real Resilience.<br className="hidden md:inline" />
-    <span className="inline-block mt-2 text-slate-900">
+    <span className="inline-block mt-1 text-slate-900">
       Built on{" "}
       <span className="text-green relative inline-block">
         ServiceNow
@@ -58,7 +58,7 @@ const irmJumpstartCards = [
         Policy & Compliance → Risk Register → Automated testing basics → Foundational workflows →<br /> Core dashboards.
         <br />
         <br />
-        Built for organisations that need visibility, consistency, and control fast.
+        Built for organisations that need visibility, consistency,<br /> and control fast.
       </>
     ),
   },
@@ -85,21 +85,23 @@ const irmThinkNodes = [
     ),
     detail: (
       <>
-        Risk exists so organisations can choose wisely —
-        <br />
-        not just comply.
+        Risk exists so organisations can choose wisely — not just comply.
       </>
     ),
   },
   {
     bold: (
       <>
-        We unify risk, security, operations,
-        <br />
-        and vendor management
+        We unify risk, security, operations,<br /> and vendor management
       </>
     ),
-    detail: "One set of data. One view. One operating rhythm.",
+    detail: (
+      <>
+        One set of data. One view.
+        <br />
+        One operating rhythm.
+      </>
+    ),
   },
   {
     bold: (
@@ -126,10 +128,16 @@ const irmThinkNodes = [
     ),
   },
   {
-    bold: "We right-size IRM for the mid‑market ",
-    detail: <>
-      Lean enough to adopt fast. Powerful enough<br /> to scale.
-    </>
+    bold: (
+      <>
+        We right-size IRM for<br /> the mid‑market
+      </>
+    ),
+    detail: (
+      <>
+        Lean enough to adopt fast.<br /> Powerful enough to scale.
+      </>
+    ),
   },
 ];
 
@@ -266,7 +274,13 @@ const irmMetrics = [
 const irmBangmetricSteps = [
   {
     title: "Discover\n & Design",
-    desc: "Understand how you make decisions today. Define the risk posture you want tomorrow.",
+    desc: (
+      <>
+        Understand how you make decisions today.
+        <br />
+        Define the risk posture you want tomorrow.
+      </>
+    ),
     image: "/images/discover.png"
   },
   {
@@ -293,7 +307,13 @@ const irmWhyPoints = [
   },
   {
     title: "Mid‑market expertise",
-    desc: "— Practical, fast, and right-sized ",
+    desc: (
+      <>
+        — Practical, fast,
+        <br />
+        and right-sized
+      </>
+    ),
   },
   {
     title: "Cross-platform fluency",
@@ -305,7 +325,13 @@ const irmWhyPoints = [
   },
   {
     title: "Outcome obsession",
-    desc: "— Resilience, clarity, trust ",
+    desc: (
+      <>
+        — Resilience,
+        <br />
+        clarity, trust
+      </>
+    ),
   },
 ];
 
@@ -326,7 +352,7 @@ export default function IntegratedRiskManagement() {
       <Intro
         heading={irmIntroHeading}
         paragraphs={irmIntroParagraphs}
-        headingClassName="!leading-[1.1]"
+        headingClassName="!leading-[1.25]"
       />
       <Jumpstarts
         cubeImage={null}

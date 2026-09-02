@@ -24,11 +24,11 @@ export const metadata: Metadata = {
   },
 };
 
-const irmIntroHeading = (
+const hamIntroHeading = (
   <>
     Designed from the<br className="hidden md:inline" />
     lifecycle back.<br className="hidden md:inline" />
-    <span className="inline-block mt-2 text-slate-900">
+    <span className="inline-block text-slate-900">
       Built on{" "}
       <span className="text-green relative inline-block">
         ServiceNow
@@ -37,7 +37,7 @@ const irmIntroHeading = (
   </>
 );
 
-const irmIntroParagraphs = [
+const hamIntroParagraphs = [
   <>
     Every device has a lifecycle, from request to retirement. When that lifecycle
     isn’t designed properly, hardware becomes reactive, costly, and difficult to track.
@@ -352,9 +352,8 @@ export default function IntegratedRiskManagement() {
         titleClassName="!text-left"
       />
       <Intro
-        heading={irmIntroHeading}
-        paragraphs={irmIntroParagraphs}
-        headingClassName="!leading-[1.1]"
+        heading={hamIntroHeading}
+        paragraphs={hamIntroParagraphs}
       />
       <Jumpstarts
         cubeImage="/images/ham-jumpstart.png"
