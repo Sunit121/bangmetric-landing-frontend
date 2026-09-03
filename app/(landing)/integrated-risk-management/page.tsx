@@ -55,7 +55,7 @@ const irmJumpstartCards = [
       <>
         A structured entry point into modern risk management:<br />
         <br />
-        Policy & Compliance → Risk Register → Automated testing basics → Foundational workflows →<br /> Core dashboards.
+        Policy & Compliance → Risk Register → Automated testing basics → Foundational workflows → Core dashboards.
         <br />
         <br />
         Built for organisations that need visibility, consistency,<br /> and control fast.
