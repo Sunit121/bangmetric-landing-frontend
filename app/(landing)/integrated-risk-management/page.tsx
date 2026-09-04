@@ -410,7 +410,7 @@ export default function IntegratedRiskManagement() {
       />
       <BottomCTA
         subtitle="Read Customer Success Stories & News on"
-        title="Enterprise Asset Management"
+        title="Integrated Risk Management"
         buttonHref="/"
       />
     </>
