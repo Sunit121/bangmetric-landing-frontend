@@ -11,6 +11,7 @@ const pages = [
   { href: "/integrated-risk-management", label: "Integrated Risk Management (IRM)" },
   { href: "/software-asset-management", label: "Software Asset Management (SAM)" },
   { href: "/hardware-asset-management", label: "Hardware Asset Management (HAM)" },
+  { href: "/third-party-risk-management", label: "Third Party Risk Management (TPRM)" },
 ];
 
 export default function SandboxIndex() {
