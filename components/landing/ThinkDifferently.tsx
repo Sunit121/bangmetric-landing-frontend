@@ -8,7 +8,7 @@ interface ThinkNode {
 
 export interface ThinkDifferentlyProps {
   nodes?: ThinkNode[];
-  variant?: "zigzag" | "horizontal" | "two-columns" | "three-columns";
+  variant?: "zigzag" | "horizontal" | "two-columns" | "three-columns" | "trpm";
 }
 
 const defaultNodes: ThinkNode[] = [
@@ -22,10 +22,10 @@ const defaultNodes: ThinkNode[] = [
 // Desktop zigzag node positions (5 nodes)
 const desktopPositions = [
   { labelLeft: "2%", labelTop: 95, labelWidth: 200, dotLeft: "calc(8% - 15px)", dotTop: 156, isTop: true },
-  { labelLeft: "20%", labelTop: 335, labelWidth: 250, dotLeft: "calc(28% - 15px)", dotTop: 306, isTop: false },
+  { labelLeft: "20%", labelTop: 335, labelWidth: 250, dotLeft: "calc(37% - 15px)", dotTop: 306, isTop: false },
   { labelLeft: "38%", labelTop: 55, labelWidth: 280, dotLeft: "calc(48% - 15px)", dotTop: 156, isTop: true },
-  { labelLeft: "62%", labelTop: 350, labelWidth: 200, dotLeft: "calc(68% - 15px)", dotTop: 306, isTop: false },
-  { labelLeft: "84%", labelTop: 100, labelWidth: 180, dotLeft: "calc(88% - 15px)", dotTop: 156, isTop: true },
+  { labelLeft: "78%", labelTop: 350, labelWidth: 200, dotLeft: "calc(68% - 15px)", dotTop: 306, isTop: false },
+  { labelLeft: "84%", labelTop: 150, labelWidth: 180, dotLeft: "calc(88% - 15px)", dotTop: 156, isTop: true },
 ];
 
 // Horizontal timeline (5 nodes: dot-above/label-below, dot-below/label-above, alternating)
@@ -38,6 +38,14 @@ const horizontalPositions = [
   { labelLeft: "41%", labelTop: 250, labelWidth: "20%", dotLeft: "calc(50% - 15px)", dotTop: 120 },
   { labelLeft: "61%", labelTop: 30, labelWidth: "18%", dotLeft: "calc(70% - 15px)", dotTop: 258 },
   { labelLeft: "81%", labelTop: 250, labelWidth: "18%", dotLeft: "calc(90% - 15px)", dotTop: 120 },
+];
+
+const trpmPositions = [
+  { labelLeft: "8.5%", labelTop: 60, labelWidth: "25%", dotLeft: "calc(10% - 20px)", dotTop: 16 },
+  { labelLeft: "35%", labelTop: 120, labelWidth: "20%", dotLeft: "calc(32.5% - 15px)", dotTop: 116 },
+  { labelLeft: "53%", labelTop: 275, labelWidth: "22%", dotLeft: "calc(54% - 15px)", dotTop: 233 },
+  { labelLeft: "64%", labelTop: 65, labelWidth: "20%", dotLeft: "calc(65% - 15px)", dotTop: 16 },
+  { labelLeft: "88%", labelTop: 165, labelWidth: "17%", dotLeft: "calc(85.4% - 15px)", dotTop: 165 },
 ];
 
 export default function ThinkDifferently({ nodes = defaultNodes, variant = "horizontal" }: ThinkDifferentlyProps) {
@@ -72,9 +80,6 @@ export default function ThinkDifferently({ nodes = defaultNodes, variant = "hori
             opacity: 0;
           }
           10% {
-            opacity: 1;
-          }
-          80% {
             opacity: 1;
           }
           100% {
@@ -173,7 +178,48 @@ export default function ThinkDifferently({ nodes = defaultNodes, variant = "hori
           </div>
         ) : (
           <div className="hidden lg:block relative" style={{ height: 400 }}>
-            {variant === "zigzag" ? (
+            {variant === "trpm" ? (
+              <svg
+                className="absolute pointer-events-none"
+                style={{ top: 0, left: 0, width: "100%", height: "100%" }}
+                viewBox="0 0 1100 400"
+                fill="none"
+                preserveAspectRatio="none"
+              >
+                <defs>
+                  <linearGradient id="trpmLineGradient" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="5.44%" stopColor="#9562EB" />
+                    <stop offset="134.13%" stopColor="#D8CDFF" />
+                  </linearGradient>
+                  <filter id="trpmLineGlow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="4" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                </defs>
+                <path
+                  d="M110 31H358V249H646V31H939V180"
+                  stroke="#A77CFF"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  vectorEffect="non-scaling-stroke"
+                />
+                <path
+                  d="M110 31H358V249H646V31H939V180"
+                  stroke="url(#trpmLineGradient)"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeDasharray="110 1100"
+                  className="trpm-animated-line"
+                  filter="url(#trpmLineGlow)"
+                  vectorEffect="non-scaling-stroke"
+                />
+              </svg>
+            ) : variant === "zigzag" ? (
               <svg
                 className="absolute pointer-events-none"
                 style={{ top: 0, left: 0, width: "100%", height: "100%" }}
@@ -284,7 +330,11 @@ export default function ThinkDifferently({ nodes = defaultNodes, variant = "hori
             )}
 
             {nodes.slice(0, 5).map((node, idx) => {
-              const pos = variant === "zigzag" ? desktopPositions[idx] : horizontalPositions[idx];
+              const pos = variant === "trpm"
+                ? trpmPositions[idx]
+                : variant === "zigzag"
+                  ? desktopPositions[idx]
+                  : horizontalPositions[idx];
               if (!pos) return null;
               return (
                 <React.Fragment key={idx}>
@@ -294,7 +344,7 @@ export default function ThinkDifferently({ nodes = defaultNodes, variant = "hori
                       {node.bold}
                     </MotionReveal>
                     {node.detail && (
-                      <MotionReveal as="p" className="node-text text-black leading-snug !text-[14px]" delay={0.05}>
+                      <MotionReveal as="p" className="node-text text-black leading-snug !text-[14px] mt-[5px]" delay={0.05}>
                         {node.detail}
                       </MotionReveal>
                     )}
@@ -311,21 +361,22 @@ export default function ThinkDifferently({ nodes = defaultNodes, variant = "hori
 
         {/* Mobile vertical layout */}
         <div className="lg:hidden mt-8 relative pl-8 space-y-12">
-          <div
-            className="absolute left-[15px] top-[14px] bottom-[-30px] w-[3px] rounded-full overflow-hidden"
-            style={{ background: "linear-gradient(180deg, #9562EB 0%, #D8CDFF 115.85%)" }}
-          >
-            <div
-              className="w-full h-[30%] absolute top-0 left-0"
-              style={{
-                background: "linear-gradient(to bottom, transparent, #9562EB 60%, #FFFFFF 100%)",
-                animation: "fiberSpark 2.5s ease-in-out infinite"
-              }}
-            />
-          </div>
-
           {nodes.map((node, idx) => (
             <div key={idx} className="relative flex items-start">
+              {idx < nodes.length - 1 && (
+                <div
+                  className="absolute left-[-17px] top-[19px] w-[3px] h-[calc(100%+3rem)] rounded-full overflow-hidden"
+                  style={{ background: "linear-gradient(180deg, #9562EB 0%, #D8CDFF 115.85%)" }}
+                >
+                  <div
+                    className="w-full h-[30%] absolute top-0 left-0"
+                    style={{
+                      background: "linear-gradient(to bottom, transparent, #9562EB 60%, #FFFFFF 100%)",
+                      animation: "fiberSpark 5s ease-in-out infinite"
+                    }}
+                  />
+                </div>
+              )}
               <div className="absolute -left-[30.5px] mt-1 z-10">
                 <CircleDot size={20} />
               </div>

@@ -211,7 +211,7 @@ const spmWhyPoints = [
 export default function SPMPage() {
   return (
     <>
-        <Hero title="Strategic Portfolio Management" />
+        <Hero title="Strategic Portfolio Management" titleClassName="px-6" />
         <Intro
           heading={spmIntroHeading}
           paragraphs={spmIntroParagraphs}

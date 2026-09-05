@@ -87,6 +87,19 @@ html, body {
 }
 
 @layer utilities {
+  @keyframes trpmLineTravel {
+    from {
+      stroke-dashoffset: 0;
+    }
+    to {
+      stroke-dashoffset: -1210;
+    }
+  }
+
+  .trpm-animated-line {
+    animation: trpmLineTravel 4s linear infinite;
+  }
+
   @keyframes blob {
     0%, 100% {
       transform: translate(0, 0) scale(1);

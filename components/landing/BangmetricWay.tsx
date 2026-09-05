@@ -14,7 +14,7 @@ interface BangmetricStep {
 interface BangmetricWayProps {
   subtitle?: string;
   steps?: BangmetricStep[];
-  layout?: "grid" | "vertical-cards";
+  layout?: "grid" | "vertical-cards" | "tprm-grid";
 }
 
 const defaultSteps: BangmetricStep[] = [
@@ -44,6 +44,7 @@ export default function BangmetricWay({
   const [activeIndex, setActiveIndex] = React.useState<number>(0);
   const [isMobile, setIsMobile] = React.useState<boolean>(false);
   const containerRef = React.useRef<HTMLDivElement>(null);
+  const isTprmGrid = layout === "tprm-grid";
 
   React.useEffect(() => {
     const checkMobile = () => {
@@ -158,9 +159,12 @@ export default function BangmetricWay({
             })}
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative">
+          <div className={isTprmGrid
+            ? "grid grid-cols-1 sm:grid-cols-4 gap-4 max-w-[1100px] mx-auto relative"
+            : "grid grid-cols-1 md:grid-cols-2 gap-8 relative"}
+          >
             {steps.map((step, index) => {
-              const isActive = activeIndex === index;
+              const isActive = !isTprmGrid && activeIndex === index;
               return (
                 <div
                   key={index}
@@ -169,43 +173,34 @@ export default function BangmetricWay({
                 >
                   {/* Card */}
                   <div
-                    className={`w-full min-h-[120px] rounded-[10px] flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-0 p-[30px] sm:px-6 sm:py-4 md:px-8 border-0 sm:border transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] relative
-                      ${isActive
-                        ? 'bg-[#9383DC] text-white [box-shadow:3px_-2px_4.3px_0px_#4D2A7C_inset,2px_3px_4.3px_0px_#00000040]'
-                        : 'bg-[#EDEDF1] text-black'
-                      }
-                      sm:bg-transparent sm:text-black sm:border-[#D8D8D8] sm:shadow-none
-                      sm:group-hover:bg-[#9383DC] sm:group-hover:text-white sm:group-hover:border-[#9383DC] sm:group-hover:[box-shadow:3px_-2px_4.3px_0px_#4D2A7C_inset,2px_3px_4.3px_0px_#00000040]`}
+                    className={isTprmGrid
+                      ? `w-full min-h-[430px] rounded-[6px] flex flex-col items-center gap-3 p-[30px] border border-[#D8D8D8] transition-all duration-500 relative text-center
+                        ${isActive ? 'bg-[#9383DC] text-white [box-shadow:3px_-2px_4.3px_0px_#4D2A7C_inset,2px_3px_4.3px_0px_#00000040]' : 'bg-[#EDEDF1] text-black'}
+                        group-hover:bg-[#9383DC] group-hover:text-white group-hover:border-[#9383DC]`
+                      : `w-full min-h-[120px] rounded-[10px] flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-0 p-[30px] sm:px-6 sm:py-4 md:px-8 border-0 sm:border transition-all duration-500 relative
+                        ${isActive ? 'bg-[#9383DC] text-white [box-shadow:3px_-2px_4.3px_0px_#4D2A7C_inset,2px_3px_4.3px_0px_#00000040]' : 'bg-[#EDEDF1] text-black'}
+                        sm:bg-transparent sm:text-black sm:border-[#D8D8D8] sm:shadow-none sm:group-hover:bg-[#9383DC] sm:group-hover:text-white sm:group-hover:border-[#9383DC]`}
                   >
-                    {/* Dot */}
-                    <div className={`absolute left-1/2 -translate-x-1/2 top-[-14px] sm:left-[-15px] sm:top-1/2 sm:-translate-y-1/2 sm:-translate-x-0 w-[24px] h-[24px] sm:w-[30px] sm:h-[30px] rounded-full border-2 border-transparent shadow-md z-20 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] flex items-center justify-center overflow-visible bg-[#CFC4FF]
-                      ${isActive
-                        ? 'scale-110'
-                        : ''
-                      }
-                      sm:group-hover:scale-110 sm:group-hover:border-white sm:group-hover:shadow-[0_0_15px_rgba(147,131,220,0.6)]`}
-                    >
-                      <span className={`absolute inset-0 rounded-full bg-[#9383DC] opacity-0 transition-opacity duration-300
-                        ${isActive ? 'animate-ping opacity-40' : ''}
-                        sm:group-hover:animate-ping sm:group-hover:opacity-40`}
-                        style={{ animationDuration: '1.5s' }}
-                      />
-                    </div>
-                    <div className={`sm:w-[180px] text-[15px] sm:text-[16px] md:text-[18px] font-semibold leading-tight shrink-0 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]
-                      ${isActive ? 'text-white' : 'text-black'}
-                      sm:text-black sm:group-hover:translate-x-1.5 sm:group-hover:text-white`}
+                    {!isTprmGrid && (
+                      <div className="absolute left-1/2 -translate-x-1/2 top-[-14px] sm:left-[-15px] sm:top-1/2 sm:-translate-y-1/2 sm:-translate-x-0 w-[24px] h-[24px] sm:w-[30px] sm:h-[30px] rounded-full border-2 border-transparent shadow-md z-20 bg-[#CFC4FF]" />
+                    )}
+                    {isTprmGrid && step.image && (
+                      <div className="relative w-full h-[130px] rounded-[6px] overflow-hidden">
+                        <Image src={step.image} alt={step.alt ?? "Bangmetric step image"} fill className="object-contain" />
+                      </div>
+                    )}
+                    <div className={isTprmGrid
+                      ? `w-full text-[24px] font-semibold leading-tight shrink-0 ${isActive ? 'text-white' : 'text-black'} group-hover:text-white`
+                      : `sm:w-[180px] text-[15px] sm:text-[16px] md:text-[18px] font-semibold leading-tight shrink-0 ${isActive ? 'text-white' : 'text-black'} sm:text-black sm:group-hover:translate-x-1.5 sm:group-hover:text-white`}
                     >
                       {step.title}
                     </div>
-                    <div
-                      className={`hidden sm:block w-[1.5px] h-[60px] shrink-0 bg-black transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-y-[1.15] origin-center
-                        sm:group-hover:bg-white`}
-                    />
+                    <div className={isTprmGrid ? "w-24 h-px bg-black/60" : "hidden sm:block w-[1.5px] h-[60px] shrink-0 bg-black"} />
                     <MotionReveal
                       as="p"
-                      className={`bangmetric-way-desc leading-[1.5] flex-1 pl-0 sm:pl-5 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]
-                        ${isActive ? 'text-white' : 'text-slate-600'}
-                        sm:text-inherit sm:group-hover:translate-x-1 sm:group-hover:text-white`}
+                      className={isTprmGrid
+                        ? `bangmetric-way-desc tprm-bangmetric-way-desc !text-[24px] leading-[1.2] w-full ${isActive ? 'text-white' : 'text-slate-600'} group-hover:text-white`
+                        : `bangmetric-way-desc leading-[1.5] flex-1 pl-0 sm:pl-5 ${isActive ? 'text-white' : 'text-slate-600'} sm:text-inherit sm:group-hover:translate-x-1 sm:group-hover:text-white`}
                       delay={index * 0.1}
                     >
                       {step.desc}

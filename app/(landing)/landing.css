@@ -88,6 +88,10 @@
   font-size: 14px !important;
 }
 
+:where(.bm-landing) .tprm-bangmetric-way-desc {
+  font-size: 20px !important;
+}
+
 :where(.bm-landing) .jumpstarts-p {
   font-size: 14px !important;
   font-weight: 400 !important;
@@ -244,6 +248,26 @@
 
 :where(.bm-landing) .bubble-float-animate:hover {
   filter: drop-shadow(0 20px 40px rgba(171, 154, 232, 0.35));
+}
+
+@keyframes bm-tprm-domino-sway {
+  0%,
+  100% {
+    transform: perspective(900px) translate3d(0, 0, 0) rotateY(0deg) rotateZ(0deg) scale(1);
+  }
+
+  35% {
+    transform: perspective(900px) translate3d(5px, -3px, 0) rotateY(2deg) rotateZ(0.5deg) scale(1.01);
+  }
+
+  65% {
+    transform: perspective(900px) translate3d(-5px, 2px, 0) rotateY(-2deg) rotateZ(-0.5deg) scale(0.995);
+  }
+}
+
+:where(.bm-landing) .tprm-domino-animate {
+  animation: bm-tprm-domino-sway 4s ease-in-out infinite;
+  filter: drop-shadow(0 10px 20px rgba(171, 154, 232, 0.15));
 }
 
 @keyframes bm-ham-tilt {

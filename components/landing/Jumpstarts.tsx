@@ -68,7 +68,7 @@ export default function Jumpstarts({
       <div className="container">
 
         {/* Top area: Title on the left, Cube image on the right */}
-        <div className={`flex flex-col md:flex-row md:items-start md:justify-between gap-8 mb-14 ${topAreaClassName}`}>
+        <div className={`flex flex-col md:flex-row md:items-center md:justify-between gap-8 mb-14 ${topAreaClassName}`}>
           <div className="flex-1 max-w-2xl">
             <MotionReveal
               as="h2"
