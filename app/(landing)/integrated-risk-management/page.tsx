@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 
 const irmIntroHeading = (
   <>
-    Designed for<br className="hidden md:inline" />
+    Designed for <br className="hidden md:inline" />
     Real Resilience.<br className="hidden md:inline" />
     <span className="inline-block mt-1 text-slate-900">
       Built on{" "}
