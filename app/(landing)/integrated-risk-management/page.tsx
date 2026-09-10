@@ -26,9 +26,9 @@ export const metadata: Metadata = {
 
 const irmIntroHeading = (
   <>
-    <span className="inline md:block">Designed for</span>{" "}
-    <span className="inline md:block">Real Resilience.</span>
-    <span className="mt-1 block text-slate-900 md:inline-block">
+    Designed for <br className="hidden md:inline" />
+    Real Resilience.<br className="hidden md:inline" />
+    <span className="inline-block mt-1 text-slate-900">
       Built on{" "}
       <span className="text-green relative inline-block">
         ServiceNow
