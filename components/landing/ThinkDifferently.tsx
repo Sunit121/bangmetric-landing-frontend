@@ -71,7 +71,7 @@ export default function ThinkDifferently({ nodes = defaultNodes, variant = "hori
   );
 
   return (
-    <section id="services" className="pt-[7.5rem] pb-[7.5rem] bg-[#F6F5FA] overflow-hidden">
+    <section id="services" className="pt-[5rem] pb-[2.5rem] bg-[#F6F5FA] overflow-hidden">
       <style dangerouslySetInnerHTML={{
         __html: `
         @keyframes fiberSpark {
@@ -105,7 +105,7 @@ export default function ThinkDifferently({ nodes = defaultNodes, variant = "hori
         }
       `}} />
       <div className="container">
-        <div className="text-center mb-16 md:mb-20">
+        <div className="text-center mb-10 md:mb-10">
           <MotionReveal
             as="h2"
             className="text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight leading-tight"

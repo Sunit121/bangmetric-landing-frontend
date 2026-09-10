@@ -45,7 +45,7 @@ const irmIntroParagraphs = [
   <>
     At <strong>BANGMETRIC</strong>, we design <strong>ServiceNow TPRM</strong> around your vendor lifecycle, bringing greater <strong>consistency, visibility, and confidence to third-party risk management.</strong>
   </>,
-  "We streamline vendor onboarding, assessments, monitoring, renewals, and off boarding while connecting procurement, legal, risk, and security workflows. With centralized data, automated processes, and AI-powered insights, organizations can make faster, more informed decisions and manage third-party risk at scale. ServiceNow TPRM is the platform. Lifecycle design is the differentiator."
+  <>We streamline vendor onboarding, assessments, monitoring, renewals, and off boarding while connecting procurement, legal, risk, and security workflows. With centralized data, automated processes, and AI-powered insights, organizations can make faster, more informed decisions and manage<br /> third-party risk at scale. ServiceNow TPRM is the platform. Lifecycle design is the differentiator.</>
 ];
 
 const irmJumpstartCards = [
@@ -251,7 +251,7 @@ const irmOverlapCards = [
 const irmMetrics = [
   {
     icon: "/images/vendor-assessment.png",
-    title: "30-40% reduction in manual vendor assessment effort ",
+    title: <>30-40% reduction<br/> in manual vendor assessment effort</>,
   },
   {
     icon: "/images/compliance-posture.png",
@@ -275,7 +275,7 @@ const irmMetrics = [
   },
   {
     icon: "/images/ai-summaries.png",
-    title: "Better decision-making powered by AI summaries & dashboards ",
+    title: <>Better decision-making powered<br/> by AI summaries<br/> & dashboards</>,
   },
 ];
 

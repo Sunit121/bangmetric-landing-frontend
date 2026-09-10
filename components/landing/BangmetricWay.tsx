@@ -174,7 +174,7 @@ export default function BangmetricWay({
                   {/* Card */}
                   <div
                     className={isTprmGrid
-                      ? `w-full min-h-[430px] rounded-[6px] flex flex-col items-center gap-3 p-[30px] border border-[#D8D8D8] transition-all duration-500 relative text-center
+                      ? `w-full min-h-[460px] rounded-[6px] flex flex-col items-center gap-3 p-[30px] border border-[#D8D8D8] transition-all duration-500 relative text-center
                         ${isActive ? 'bg-[#9383DC] text-white [box-shadow:3px_-2px_4.3px_0px_#4D2A7C_inset,2px_3px_4.3px_0px_#00000040]' : 'bg-[#EDEDF1] text-black'}
                         group-hover:bg-[#9383DC] group-hover:text-white group-hover:border-[#9383DC]`
                       : `w-full min-h-[120px] rounded-[10px] flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-0 p-[30px] sm:px-6 sm:py-4 md:px-8 border-0 sm:border transition-all duration-500 relative
