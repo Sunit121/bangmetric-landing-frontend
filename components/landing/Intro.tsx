@@ -41,7 +41,7 @@ export default function Intro({
           <div className="lg:col-span-6 w-full">
             <MotionReveal
               as="h2"
-              className={`text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight leading-[1.15] ${headingClassName ?? ""}`}
+              className={`text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight leading-[1.20] ${headingClassName ?? ""}`}
             >
               {heading}
             </MotionReveal>

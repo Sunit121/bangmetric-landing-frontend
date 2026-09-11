@@ -165,12 +165,12 @@ const itomMetrics = [
 const itomBangmetricSteps = [
   {
     title: "Discover &\nDesign",
-    desc: "We map your services, dependencies, risks, and operations culture, not just your IP ranges.",
+    desc: "We map your services, dependencies, risks, and operations culture, not just your IP ranges.",
     image: "/images/discover.png"
   },
   {
     title: "Build for\nSpeed",
-    desc: "We implement visibility and mapping with discipline, governance, and purpose. ",
+    desc: "We implement visibility and mapping with discipline, governance, and purpose.",
     image: "/images/build-for-speed.png"
   },
   {

@@ -8,7 +8,7 @@ interface ThinkNode {
 
 export interface ThinkDifferentlyProps {
   nodes?: ThinkNode[];
-  variant?: "zigzag" | "horizontal" | "two-columns" | "three-columns" | "trpm";
+  variant?: "zigzag" | "horizontal" | "two-columns" | "three-columns" | "trpm" | "sam";
 }
 
 const defaultNodes: ThinkNode[] = [
@@ -46,6 +46,14 @@ const trpmPositions = [
   { labelLeft: "53%", labelTop: 275, labelWidth: "22%", dotLeft: "calc(54% - 15px)", dotTop: 233 },
   { labelLeft: "64%", labelTop: 65, labelWidth: "20%", dotLeft: "calc(65% - 15px)", dotTop: 16 },
   { labelLeft: "88%", labelTop: 165, labelWidth: "17%", dotLeft: "calc(85.4% - 15px)", dotTop: 165 },
+];
+
+const samPositions = [
+  { labelLeft: "13%", labelTop: 55, labelWidth: "25%", dotLeft: "calc(13.2% - 15px)", dotTop: 10 },
+  { labelLeft: "47%", labelTop: 55, labelWidth: "25%", dotLeft: "calc(47.7% - 15px)", dotTop: 10 },
+  { labelLeft: "82%", labelTop: 55, labelWidth: "23%", dotLeft: "calc(82.2% - 15px)", dotTop: 10 },
+  { labelLeft: "32.5%", labelTop: 265, labelWidth: "29%", dotLeft: "calc(33% - 15px)", dotTop: 215 },
+  { labelLeft: "66%", labelTop: 265, labelWidth: "28%", dotLeft: "calc(66.5% - 15px)", dotTop: 215 },
 ];
 
 export default function ThinkDifferently({ nodes = defaultNodes, variant = "horizontal" }: ThinkDifferentlyProps) {
@@ -102,6 +110,17 @@ export default function ThinkDifferently({ nodes = defaultNodes, variant = "hori
             transform: translateX(400%);
             opacity: 0;
           }
+        }
+        @keyframes samLoopPulse {
+          0% {
+            stroke-dashoffset: 0;
+          }
+          100% {
+            stroke-dashoffset: -2360;
+          }
+        }
+        .sam-animated-loop {
+          animation: samLoopPulse 6s linear infinite;
         }
       `}} />
       <div className="container">
@@ -177,8 +196,56 @@ export default function ThinkDifferently({ nodes = defaultNodes, variant = "hori
             })}
           </div>
         ) : (
-          <div className="hidden lg:block relative" style={{ height: 400 }}>
-            {variant === "trpm" ? (
+          <div className="hidden lg:block relative" style={{ height: variant === "sam" ? 410 : 400 }}>
+            {variant === "sam" ? (
+              <svg
+                className="absolute pointer-events-none"
+                style={{ top: 0, left: 0, width: "100%", height: "100%" }}
+                viewBox="0 0 1100 420"
+                fill="none"
+                preserveAspectRatio="none"
+              >
+                <defs>
+                  <linearGradient id="samLoopGradient" x1="0" y1="0" x2="1100" y2="0" gradientUnits="userSpaceOnUse">
+                    <stop stopColor="#9562EB" />
+                    <stop offset="0.5" stopColor="#B28DFF" />
+                    <stop offset="1" stopColor="#D8CDFF" />
+                  </linearGradient>
+                  <filter id="samLineGlow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="4" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                </defs>
+                <rect
+                  x="40"
+                  y="25"
+                  width="1020"
+                  height="210"
+                  rx="45"
+                  ry="45"
+                  stroke="url(#samLoopGradient)"
+                  strokeWidth="2.5"
+                  vectorEffect="non-scaling-stroke"
+                />
+                <rect
+                  x="40"
+                  y="25"
+                  width="1020"
+                  height="210"
+                  rx="45"
+                  ry="45"
+                  stroke="#9562EB"
+                  strokeWidth="3.5"
+                  strokeDasharray="160 2200"
+                  className="sam-animated-loop"
+                  filter="url(#samLineGlow)"
+                  vectorEffect="non-scaling-stroke"
+                />
+              </svg>
+            ) : variant === "trpm" ? (
               <svg
                 className="absolute pointer-events-none"
                 style={{ top: 0, left: 0, width: "100%", height: "100%" }}
@@ -330,11 +397,13 @@ export default function ThinkDifferently({ nodes = defaultNodes, variant = "hori
             )}
 
             {nodes.slice(0, 5).map((node, idx) => {
-              const pos = variant === "trpm"
-                ? trpmPositions[idx]
-                : variant === "zigzag"
-                  ? desktopPositions[idx]
-                  : horizontalPositions[idx];
+              const pos = variant === "sam"
+                ? samPositions[idx]
+                : variant === "trpm"
+                  ? trpmPositions[idx]
+                  : variant === "zigzag"
+                    ? desktopPositions[idx]
+                    : horizontalPositions[idx];
               if (!pos) return null;
               return (
                 <React.Fragment key={idx}>

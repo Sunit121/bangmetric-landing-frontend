@@ -14,25 +14,29 @@ interface BangmetricStep {
 interface BangmetricWayProps {
   subtitle?: string;
   steps?: BangmetricStep[];
-  layout?: "grid" | "vertical-cards" | "tprm-grid";
+  layout?: "grid" | "vertical-cards" | "tprm-grid" | "2x2-grid" | "2x2";
 }
 
 const defaultSteps: BangmetricStep[] = [
   {
     title: "Discover &\nDesign",
     desc: "Map value streams, locate friction, align on outcomes and metrics that matter.",
+    image: "/images/discover.png",
   },
   {
     title: "Automate\nWhat Matters",
     desc: "Apply AI, Virtual Agent, and automation where they remove effort and add clarity.",
+    image: "/images/automate.png",
   },
   {
-    title: "Build\nfor Speed",
+    title: "Build for\nClarity",
     desc: "Configure ITSM with intent every field, workflow, and role supports resolution and flow.",
+    image: "/images/build-for-speed.png",
   },
   {
     title: "Improve\nContinuously",
-    desc: "Operate with real signals (MTTR, FCR, change failure rate). Iterate without chaos. ",
+    desc: "Operate with real signals (MTTR, FCR, change failure rate). Iterate without chaos.",
+    image: "/images/improve.png",
   },
 ];
 
@@ -44,7 +48,9 @@ export default function BangmetricWay({
   const [activeIndex, setActiveIndex] = React.useState<number>(0);
   const [isMobile, setIsMobile] = React.useState<boolean>(false);
   const containerRef = React.useRef<HTMLDivElement>(null);
+
   const isTprmGrid = layout === "tprm-grid";
+  const is2x2Grid = layout === "2x2-grid" || layout === "2x2";
 
   React.useEffect(() => {
     const checkMobile = () => {
@@ -56,7 +62,7 @@ export default function BangmetricWay({
   }, []);
 
   React.useEffect(() => {
-    if (!isMobile) return;
+    if (!isMobile || is2x2Grid) return;
 
     const handleScroll = () => {
       if (!containerRef.current) return;
@@ -87,23 +93,55 @@ export default function BangmetricWay({
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [isMobile]);
+  }, [isMobile, is2x2Grid]);
 
   return (
-    <section id="methodology" className="pt-20 md:pt-[7.5rem] pb-[3rem] bg-[#F6F5FA] overflow-hidden" ref={containerRef}>
-      <div className="container">
-
+    <section id="methodology" className="pt-16 md:pt-24 pb-16 md:pb-24 bg-[#F6F5FA] overflow-hidden" ref={containerRef}>
+      <div className="container max-w-[1140px] mx-auto px-4">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-8 md:mb-20">
-          <MotionReveal as="h2" className="text-3xl sm:text-4xl md:text-5xl text-slate-900 tracking-tight leading-tight">
+        <div className="text-center mb-10 md:mb-14">
+          <MotionReveal as="h2" className="text-3xl sm:text-4xl md:text-[44px] text-slate-900 font-normal tracking-tight leading-tight">
             The <strong>BANGMETRIC</strong> Way
           </MotionReveal>
-          {/* <MotionReveal as="p" className="mt-4 text-base md:text-lg text-slate-600 font-light" delay={0.1}>
-            {subtitle}
-          </MotionReveal> */}
         </div>
 
-        {layout === "vertical-cards" ? (
+        {/* 2x2 Grid Layout for Software Asset Management */}
+        {is2x2Grid ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-7">
+            {steps.map((step, index) => (
+              <MotionReveal key={index} delay={index * 0.08} className="h-full">
+                <div
+                  className="bangmetric-way-card group relative flex flex-col justify-between h-full bg-[#EDEDF1] rounded-[16px] p-6 sm:p-7 border border-[#D8D8D8]/80 shadow-none hover:bg-[#9383DC] hover:border-[#9383DC] hover:shadow-[0_12px_30px_rgba(147,131,220,0.35)] transition-all duration-300 ease-out hover:-translate-y-1 cursor-pointer"
+                >
+                  {/* Top Section: Image on left, Title & Divider line on right */}
+                  <div className="flex items-start sm:items-center gap-4 sm:gap-5 mb-3">
+                    {step.image && (
+                      <div className="relative w-[130px] sm:w-[150px] md:w-[165px] h-[85px] sm:h-[95px] md:h-[105px] rounded-[10px] overflow-hidden shrink-0 bg-slate-200/60">
+                        <Image
+                          src={step.image}
+                          alt={step.alt ?? "Bangmetric step image"}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                    )}
+                    <div className="flex flex-col justify-center flex-1 min-w-0">
+                      <h3 className="text-[18px] sm:text-[20px] md:text-[22px] font-bold leading-[1.25] text-slate-900 group-hover:text-white transition-colors duration-300 whitespace-pre-line">
+                        {step.title}
+                      </h3>
+                      <div className="w-16 sm:w-20 h-[1.5px] mt-2.5 bg-slate-500/60 group-hover:bg-white/80 transition-colors duration-300" />
+                    </div>
+                  </div>
+
+                  {/* Bottom Section: Description */}
+                  <p className="text-[14px] sm:text-[15px] leading-[1.55] font-normal text-slate-600 group-hover:text-white/95 transition-colors duration-300 mt-2">
+                    {step.desc}
+                  </p>
+                </div>
+              </MotionReveal>
+            ))}
+          </div>
+        ) : layout === "vertical-cards" ? (
           <div className="relative flex flex-col gap-8 max-w-[800px] mx-auto">
             {steps.map((step, index) => {
               const isActive = activeIndex === index;
@@ -126,10 +164,7 @@ export default function BangmetricWay({
                     >
                       {/* Dot on mobile */}
                       <div className={`absolute left-1/2 -translate-x-1/2 top-[-14px] w-[24px] h-[24px] rounded-full border-2 border-transparent shadow-md transition-all duration-300 flex items-center justify-center overflow-visible md:hidden z-20 bg-[#CFC4FF]
-                        ${isActive
-                          ? 'scale-110'
-                          : ''
-                        }`}
+                        ${isActive ? 'scale-110' : ''}`}
                       >
                         <span className={`absolute inset-0 rounded-full bg-[#9383DC] opacity-0 transition-opacity duration-300
                           ${isActive ? 'animate-ping opacity-40' : ''}`}
@@ -171,7 +206,6 @@ export default function BangmetricWay({
                   className="bangmetric-card-wrapper relative flex items-center group transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5 z-10 pt-4 sm:pt-0"
                   data-index={index}
                 >
-                  {/* Card */}
                   <div
                     className={isTprmGrid
                       ? `w-full min-h-[460px] rounded-[6px] flex flex-col items-center gap-3 p-[30px] border border-[#D8D8D8] transition-all duration-500 relative text-center
@@ -215,3 +249,5 @@ export default function BangmetricWay({
     </section>
   );
 }
+
+
