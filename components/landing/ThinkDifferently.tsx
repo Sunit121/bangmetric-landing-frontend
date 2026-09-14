@@ -49,11 +49,11 @@ const trpmPositions = [
 ];
 
 const samPositions = [
-  { labelLeft: "13%", labelTop: 55, labelWidth: "25%", dotLeft: "calc(13.2% - 15px)", dotTop: 10 },
+  { labelLeft: "12%", labelTop: 60, labelWidth: "25%", dotLeft: "calc(12% - 15px)", dotTop: 10 },
   { labelLeft: "47%", labelTop: 55, labelWidth: "25%", dotLeft: "calc(47.7% - 15px)", dotTop: 10 },
-  { labelLeft: "82%", labelTop: 55, labelWidth: "23%", dotLeft: "calc(82.2% - 15px)", dotTop: 10 },
-  { labelLeft: "32.5%", labelTop: 265, labelWidth: "29%", dotLeft: "calc(33% - 15px)", dotTop: 215 },
-  { labelLeft: "66%", labelTop: 265, labelWidth: "28%", dotLeft: "calc(66.5% - 15px)", dotTop: 215 },
+  { labelLeft: "80%", labelTop: 55, labelWidth: "23%", dotLeft: "calc(80% - 15px)", dotTop: 10 },
+  { labelLeft: "32.5%", labelTop: 290, labelWidth: "29%", dotLeft: "calc(33% - 15px)", dotTop: 240 },
+  { labelLeft: "66%", labelTop: 290, labelWidth: "28%", dotLeft: "calc(66.5% - 15px)", dotTop: 240 },
 ];
 
 export default function ThinkDifferently({ nodes = defaultNodes, variant = "horizontal" }: ThinkDifferentlyProps) {
@@ -79,7 +79,7 @@ export default function ThinkDifferently({ nodes = defaultNodes, variant = "hori
   );
 
   return (
-    <section id="services" className="pt-[5rem] pb-[2.5rem] bg-[#F6F5FA] overflow-hidden">
+    <section id="services" className="pt-[5rem] pb-[4rem] bg-[#F6F5FA] overflow-hidden">
       <style dangerouslySetInnerHTML={{
         __html: `
         @keyframes fiberSpark {
@@ -200,7 +200,7 @@ export default function ThinkDifferently({ nodes = defaultNodes, variant = "hori
             {variant === "sam" ? (
               <svg
                 className="absolute pointer-events-none"
-                style={{ top: 0, left: 0, width: "100%", height: "100%" }}
+                style={{ top: 0, left: 0, width: "100%", height: "110%" }}
                 viewBox="0 0 1100 420"
                 fill="none"
                 preserveAspectRatio="none"
@@ -224,8 +224,8 @@ export default function ThinkDifferently({ nodes = defaultNodes, variant = "hori
                   y="25"
                   width="1020"
                   height="210"
-                  rx="45"
-                  ry="45"
+                  rx="35"
+                  ry="35"
                   stroke="url(#samLoopGradient)"
                   strokeWidth="2.5"
                   vectorEffect="non-scaling-stroke"
@@ -235,8 +235,8 @@ export default function ThinkDifferently({ nodes = defaultNodes, variant = "hori
                   y="25"
                   width="1020"
                   height="210"
-                  rx="45"
-                  ry="45"
+                  rx="35"
+                  ry="35"
                   stroke="#9562EB"
                   strokeWidth="3.5"
                   strokeDasharray="160 2200"

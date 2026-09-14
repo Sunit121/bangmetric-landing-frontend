@@ -11,15 +11,15 @@ import ITOMWhyChoose from "@/components/landing/ITOMWhyChoose";
 import BottomCTA from "@/components/landing/BottomCTA";
 
 export const metadata: Metadata = {
-  title: "Software Asset Management",
+  title: "Hardware Asset Management",
   description:
-    "ServiceNow Software Asset Management designed to help organisations optimise their software investments, ensure compliance, and reduce risk.",
-  alternates: { canonical: "/software-asset-management" },
+    "ServiceNow Hardware Asset Management designed to help organisations optimise their software investments, ensure compliance, and reduce risk.",
+  alternates: { canonical: "/hardware-asset-management" },
   openGraph: {
-    title: "Software Asset Management | BANGMETRIC",
+    title: "Hardware Asset Management | BANGMETRIC",
     description:
-      "ServiceNow Software Asset Management designed to help organisations optimise their software investments, ensure compliance, and reduce risk.",
-    url: "/software-asset-management",
+      "ServiceNow Hardware Asset Management designed to help organisations optimise their software investments, ensure compliance, and reduce risk.",
+    url: "/hardware-asset-management",
     type: "website",
   },
 };

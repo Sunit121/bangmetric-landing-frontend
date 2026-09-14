@@ -354,7 +354,7 @@ export default function SoftwareAssetManagement() {
         align="left"
         bannerImage="/images/sam_banner.png"
         bannerImageClassName="!object-cover !object-[65%_center]"
-        titleColor="#000000"
+        titleColor="#ffffff"
         titleClassName="!text-left"
       />
       <Intro
