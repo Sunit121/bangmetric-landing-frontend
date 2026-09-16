@@ -403,7 +403,7 @@ export default function IntegratedRiskManagement() {
       <ITOMWhyChoose
         paragraphs={[
           <React.Fragment key="1">
-            Hardware is everywhere.<br /> Control shouldn’t be optional
+            Hardware is everywhere.<br /> Control shouldn’t be optional,
           </React.Fragment>,
         ]}
         points={irmWhyPoints}
