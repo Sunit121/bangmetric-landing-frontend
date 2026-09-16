@@ -13,12 +13,12 @@ import BottomCTA from "@/components/landing/BottomCTA";
 export const metadata: Metadata = {
   title: "Hardware Asset Management",
   description:
-    "ServiceNow Hardware Asset Management designed to help organisations optimise their software investments, ensure compliance, and reduce risk.",
+    "Transform hardware asset management with ServiceNow HAM. Improve asset visibility, automate lifecycles, control costs, and strengthen compliance with BANGMETRIC.",
   alternates: { canonical: "/hardware-asset-management" },
   openGraph: {
     title: "Hardware Asset Management | BANGMETRIC",
     description:
-      "ServiceNow Hardware Asset Management designed to help organisations optimise their software investments, ensure compliance, and reduce risk.",
+      "Transform hardware asset management with ServiceNow HAM. Improve asset visibility, automate lifecycles, control costs, and strengthen compliance with BANGMETRIC.",
     url: "/hardware-asset-management",
     type: "website",
   },
@@ -121,7 +121,7 @@ const irmThinkNodes = [
   {
     bold: (
       <>
-        We prioritise accuracy<br /> over volumege
+        We prioritise accuracy<br /> over volume
       </>
     ),
     detail: (
@@ -190,10 +190,9 @@ const irmOverlapCards = [
     ),
     image: "/images/inventory-control.png",
     features: [
-      "Usage-based insights",
-      "Shadow IT discovery",
-      "Renewal forecasting",
-      "Cost-per-user optimization"
+      "Digital stockrooms aligned with real locations",
+      "Automated replenishment",
+      "Accurate, auditable inventory",
     ]
   },
   {
@@ -284,24 +283,24 @@ const irmBangmetricSteps = [
     title: "Discover\n & Design",
     desc: (
       <>
-        We assess spend, usage, contracts, and entitlements,<br /> then design SAM around cost, compliance, and control.
+        We map your lifecycle operations and design flows that make sense.
       </>
     ),
     image: "/images/discover.png"
   },
   {
     title: "Build for\n Clarity",
-    desc: "Clean data, clear processes, connected workflows.",
+    desc: "Clean stockrooms. Accurate records. Structured workflows",
     image: "/images/build-for-speed.png"
   },
   {
     title: "Automate\n What\n Matters",
-    desc: "Reclamation, reconciliation, renewals, compliance checks.",
+    desc: "Receiving. Reconciliation. Refresh. Compliance. Employee transitions.",
     image: "/images/automate.png"
   },
   {
     title: "Improve\n Continuously",
-    desc: "Monitor spend, usage, and compliance; optimize every renewal cycle.",
+    desc: "Lifecycle refinement, data accuracy, asset forecasting, and operations evolution.",
     image: "/images/improve.png"
   },
 ];
@@ -363,7 +362,7 @@ export default function IntegratedRiskManagement() {
         sectionClassName="!pt-8 md:!pt-28"
         sectionTitle={
           <>
-            BANGEMTRIC HAM Jumpstarts<br />
+            BANGMETRIC HAM Jumpstarts<br />
           </>
         }
         subtitle={
@@ -390,7 +389,7 @@ export default function IntegratedRiskManagement() {
         metrics={irmMetrics}
         highlightText={
           <>
-            Not because we track more data, but because we track the right things the right way.
+            Not because we track more device, but because we track the right things the right way.
           </>
         }
         highlightColSpan={2}
@@ -404,7 +403,7 @@ export default function IntegratedRiskManagement() {
       <ITOMWhyChoose
         paragraphs={[
           <React.Fragment key="1">
-            Software spending shouldn't be a black box. <br />And audits shouldn't require a war room.
+            Hardware is everywhere.<br /> Control shouldn’t be optional
           </React.Fragment>,
         ]}
         points={irmWhyPoints}
