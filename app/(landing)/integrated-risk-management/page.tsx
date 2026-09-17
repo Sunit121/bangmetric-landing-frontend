@@ -284,7 +284,7 @@ const irmBangmetricSteps = [
     image: "/images/discover.png"
   },
   {
-    title: "Build for\n Clarity",
+    title: "Build for\n Trust",
     desc: "Accurate data. Clean workflows. Reliable governance.",
     image: "/images/build-for-speed.png"
   },
