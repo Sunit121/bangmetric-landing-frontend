@@ -195,7 +195,7 @@ export default function BangmetricWay({
           </div>
         ) : (
           <div className={isTprmGrid
-            ? "grid grid-cols-1 sm:grid-cols-4 gap-4 max-w-[1100px] mx-auto relative"
+            ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 max-w-[1100px] mx-auto relative"
             : "grid grid-cols-1 md:grid-cols-2 gap-8 relative"}
           >
             {steps.map((step, index) => {
@@ -203,12 +203,12 @@ export default function BangmetricWay({
               return (
                 <div
                   key={index}
-                  className="bangmetric-card-wrapper relative flex items-center group transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5 z-10 pt-4 sm:pt-0"
+                  className="bangmetric-card-wrapper relative flex h-full items-stretch group transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5 z-10 pt-4 sm:pt-0"
                   data-index={index}
                 >
                   <div
                     className={isTprmGrid
-                      ? `w-full min-h-[460px] rounded-[6px] flex flex-col items-center gap-3 p-[30px] border border-[#D8D8D8] transition-all duration-500 relative text-center
+                      ? `w-full h-full min-h-[360px] lg:min-h-[400px] rounded-[10px] flex flex-col items-center justify-start gap-3 p-5 sm:p-6 lg:py-[25px] lg:px-[30px] border border-[#D8D8D8] transition-all duration-500 relative text-center
                         ${isActive ? 'bg-[#9383DC] text-white [box-shadow:3px_-2px_4.3px_0px_#4D2A7C_inset,2px_3px_4.3px_0px_#00000040]' : 'bg-[#EDEDF1] text-black'}
                         group-hover:bg-[#9383DC] group-hover:text-white group-hover:border-[#9383DC]`
                       : `w-full min-h-[120px] rounded-[10px] flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-0 p-[30px] sm:px-6 sm:py-4 md:px-8 border-0 sm:border transition-all duration-500 relative
@@ -219,21 +219,21 @@ export default function BangmetricWay({
                       <div className="absolute left-1/2 -translate-x-1/2 top-[-14px] sm:left-[-15px] sm:top-1/2 sm:-translate-y-1/2 sm:-translate-x-0 w-[24px] h-[24px] sm:w-[30px] sm:h-[30px] rounded-full border-2 border-transparent shadow-md z-20 bg-[#CFC4FF]" />
                     )}
                     {isTprmGrid && step.image && (
-                      <div className="relative w-full h-[130px] rounded-[6px] overflow-hidden">
+                      <div className="relative w-full h-[120px] lg:h-[130px] rounded-[6px] overflow-hidden shrink-0">
                         <Image src={step.image} alt={step.alt ?? "Bangmetric step image"} fill className="object-contain" />
                       </div>
                     )}
                     <div className={isTprmGrid
-                      ? `w-full text-[24px] font-semibold leading-tight shrink-0 ${isActive ? 'text-white' : 'text-black'} group-hover:text-white`
+                      ? `w-full text-[18px] sm:text-[20px] lg:text-[22px] font-semibold leading-tight shrink-0 ${isActive ? 'text-white' : 'text-black'} group-hover:text-white`
                       : `sm:w-[180px] text-[15px] sm:text-[16px] md:text-[18px] font-semibold leading-tight shrink-0 ${isActive ? 'text-white' : 'text-black'} sm:text-black sm:group-hover:translate-x-1.5 sm:group-hover:text-white`}
                     >
                       {step.title}
                     </div>
-                    <div className={isTprmGrid ? "w-24 h-px bg-black/60" : "hidden sm:block w-[1.5px] h-[60px] shrink-0 bg-black"} />
+                    <div className={isTprmGrid ? "w-20 lg:w-24 h-px bg-black/60 shrink-0" : "hidden sm:block w-[1.5px] h-[60px] shrink-0 bg-black"} />
                     <MotionReveal
                       as="p"
                       className={isTprmGrid
-                        ? `bangmetric-way-desc tprm-bangmetric-way-desc !text-[24px] leading-[1.2] w-full ${isActive ? 'text-white' : 'text-slate-600'} group-hover:text-white`
+                        ? `bangmetric-way-desc tprm-bangmetric-way-desc !text-[14px] sm:!text-[15px] lg:!text-[15px] leading-[1.5] w-full flex-1 ${isActive ? 'text-white' : 'text-slate-600'} group-hover:text-white`
                         : `bangmetric-way-desc leading-[1.5] flex-1 pl-0 sm:pl-5 ${isActive ? 'text-white' : 'text-slate-600'} sm:text-inherit sm:group-hover:translate-x-1 sm:group-hover:text-white`}
                       delay={index * 0.1}
                     >

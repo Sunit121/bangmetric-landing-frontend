@@ -301,7 +301,7 @@ const irmBangmetricSteps = [
     image: "/images/automate.png"
   },
   {
-    title: "Build for\n Clarity",
+    title: "Build for\n Precision",
     desc: "Clean data, clear processes, connected workflows.",
     image: "/images/build-for-speed.png"
   },
@@ -367,8 +367,7 @@ export default function SoftwareAssetManagement() {
         topAreaClassName="!mb-[15px] !items-flex-center"
         sectionTitle={
           <>
-            BANGEMTRIC SAM Jumpstarts <br />
-            <span className="text-[20px] md:text-[24px] font-normal leading-tight">(Fast, Clean, Outcome-Driven)</span>
+            BANGMETRIC SAM Jumpstarts <br />
           </>
         }
         subtitle={

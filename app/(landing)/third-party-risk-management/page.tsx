@@ -56,11 +56,11 @@ const irmJumpstartCards = [
         Built for organisations who need to quickly control third‑party risk without complexity.<br />
         <br />
         <ul className="list-disc list-inside">
-            <li>Vendor inventory setup</li>
-            <li>Tiering & classification</li>
-            <li>Inherent risk assessments</li>
-            <li>Core due diligence workflows</li>
-            <li>Foundational dashboards</li>
+          <li>Vendor inventory setup</li>
+          <li>Tiering & classification</li>
+          <li>Inherent risk assessments</li>
+          <li>Core due diligence workflows</li>
+          <li>Foundational dashboards</li>
         </ul>
       </>
     ),
@@ -69,17 +69,17 @@ const irmJumpstartCards = [
     title: "60 Day TPRM Pro Jumpstart",
     description: (
       <>
-       For organisations needing continuous oversight and integrated governance. <br />
+        For organisations needing continuous oversight and integrated governance. <br />
         <br />
         <ul className="list-disc list-inside">
-            <li>Residual risk workflows</li>
-            <li>Automated reassessments</li>
-            <li>AI-powered summaries (Now Assist)</li>
-            <li>Integrated procurement → risk workflows</li>
-            <li>Vendor performance dashboards</li>
-            <li>Contract & document linkage</li>
+          <li>Residual risk workflows</li>
+          <li>Automated reassessments</li>
+          <li>AI-powered summaries (Now Assist)</li>
+          <li>Integrated procurement → risk workflows</li>
+          <li>Vendor performance dashboards</li>
+          <li>Contract & document linkage</li>
         </ul>
-        <br/>
+        <br />
         A complete TPRM operating model, delivered with speed and purpose.
       </>
     ),
@@ -163,7 +163,7 @@ const irmOverlapCards = [
   {
     title: (
       <>
-       Vendor Inventory<br/>& Classification
+        Vendor Inventory<br />& Classification
       </>
     ),
     image: "/images/vendor-inventory.png",
@@ -176,7 +176,7 @@ const irmOverlapCards = [
   {
     title: (
       <>
-        Inherent & Residual<br/> Risk Assessments
+        Inherent & Residual<br /> Risk Assessments
       </>
     ),
     image: "/images/inherent-and-residual-risk.png",
@@ -190,7 +190,7 @@ const irmOverlapCards = [
   {
     title: (
       <>
-        Due Diligence &<br/> Control Testing
+        Due Diligence &<br /> Control Testing
       </>
     ),
     image: "/images/due-diligence.png",
@@ -204,7 +204,7 @@ const irmOverlapCards = [
   {
     title: (
       <>
-       Onboarding &<br/> Offboarding Automation
+        Onboarding &<br /> Offboarding Automation
       </>
     ),
     image: "/images/onboarding-and-offboarding.png",
@@ -232,12 +232,12 @@ const irmOverlapCards = [
   {
     title: (
       <>
-       Dashboards & Insights
+        Dashboards & Insights
       </>
     ),
     image: "/images/dashboard-and-insights.png",
     features: [
-     "Single-pane-of-glass visibility",
+      "Single-pane-of-glass visibility",
       "Multi-level TPRM reporting",
       "KPIs, KRIs, trends, and risk posture",
       <>
@@ -251,7 +251,7 @@ const irmOverlapCards = [
 const irmMetrics = [
   {
     icon: "/images/vendor-assessment.png",
-    title: <>30-40% reduction<br/> in manual vendor assessment effort</>,
+    title: <>30-40% reduction<br /> in manual vendor assessment effort</>,
   },
   {
     icon: "/images/compliance-posture.png",
@@ -275,33 +275,33 @@ const irmMetrics = [
   },
   {
     icon: "/images/ai-summaries.png",
-    title: <>Better decision-making powered<br/> by AI summaries<br/> & dashboards</>,
+    title: <>Better decision-making powered<br /> by AI summaries<br /> & dashboards</>,
   },
 ];
 
 const irmBangmetricSteps = [
   {
-    title: <>Discover<br/> & Design</>,
+    title: <>Discover<br /> & Design</>,
     desc: (
       <>
-        We assess spend, usage, contracts, and entitlements, then design SAM around cost, compliance, and control.
+        Design the vendor lifecycle around your governance model and risk appetite.
       </>
     ),
     image: "/images/discover.png"
   },
   {
-    title: <>Build for<br/> Clarity</>,
-    desc: "Clean data, clear processes, connected workflows.",
+    title: <>Build With<br /> Precision </>,
+    desc: "Clean workflows, clear assessment models, unified vendor data",
     image: "/images/build-for-speed.png"
   },
   {
-    title: <>Automate What<br/> Matters</>,
-    desc: "Reclamation, reconciliation, renewals, compliance checks.",
+    title: <>Automate What<br /> Matters</>,
+    desc: "Onboarding, reassessments, evidence collection, renewal workflows.",
     image: "/images/automate.png"
   },
   {
-    title: <>Improve<br/> Continuously</>,
-    desc: "Monitor spend, usage, and compliance; optimize every renewal cycle.",
+    title: <>Improve<br /> Continuously</>,
+    desc: "Monitor, refine, expand, with AI improving signal clarity at every step.",
     image: "/images/improve.png"
   },
 ];
@@ -325,7 +325,7 @@ const irmWhyPoints = [
     titleClassName: "font-normal",
     desc: <strong>TPRM expertise</strong>,
   },
-   {
+  {
     title: "Outcome",
     titleClassName: "font-normal",
     desc: <strong>obsession, clarity, compliance, resilience</strong>,
@@ -371,7 +371,7 @@ export default function IntegratedRiskManagement() {
       <WhatWeBuild
         sectionTitle={
           <>
-            What We Build With <span className="text-green">ServiceNow</span> IRM
+            What We Build With <span className="text-green">ServiceNow</span> TPRM
           </>
         }
         layout="overlap"
@@ -401,7 +401,7 @@ export default function IntegratedRiskManagement() {
       <ITOMWhyChoose
         paragraphs={[
           <React.Fragment key="1">
-            Because third-party risk touches every part of the business,<br/> and it cannot be left to spreadsheets and email.
+            Because third-party risk touches every part of the business,<br /> and it cannot be left to spreadsheets and email.
           </React.Fragment>,
         ]}
         points={irmWhyPoints}
