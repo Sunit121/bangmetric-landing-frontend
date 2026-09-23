@@ -41,19 +41,19 @@ const horizontalPositions = [
 ];
 
 const trpmPositions = [
-  { labelLeft: "9%", labelTop: 65, labelWidth: "25%", dotLeft: "calc(10% - 20px)", dotTop: 16 },
-  { labelLeft: "35%", labelTop: 120, labelWidth: "20%", dotLeft: "calc(32.5% - 15px)", dotTop: 116 },
-  { labelLeft: "54%", labelTop: 280, labelWidth: "22%", dotLeft: "calc(54% - 15px)", dotTop: 233 },
-  { labelLeft: "65%", labelTop: 65, labelWidth: "20%", dotLeft: "calc(65% - 15px)", dotTop: 16 },
-  { labelLeft: "88%", labelTop: 165, labelWidth: "17%", dotLeft: "calc(85.4% - 15px)", dotTop: 165 },
+  { labelLeft: "8.5%", labelTop: 62, labelWidth: "25%", dotLeft: "calc(10% - 20px)", dotTop: 16 },
+  { labelLeft: "36%", labelTop: 120, labelWidth: "20%", dotLeft: "calc(32.5% - 15px)", dotTop: 116 },
+  { labelLeft: "53%", labelTop: 278, labelWidth: "22%", dotLeft: "calc(54% - 15px)", dotTop: 233 },
+  { labelLeft: "63%", labelTop: 65, labelWidth: "20%", dotLeft: "calc(63.5% - 15px)", dotTop: 16 },
+  { labelLeft: "89%", labelTop: 165, labelWidth: "17%", dotLeft: "calc(85.4% - 15px)", dotTop: 165 },
 ];
 
 const samPositions = [
-  { labelLeft: "12%", labelTop: 60, labelWidth: "24%", dotLeft: "calc(12% - 15px)", dotTop: 10 },
-  { labelLeft: "45%", labelTop: 55, labelWidth: "25%", dotLeft: "calc(45% - 15px)", dotTop: 10 },
-  { labelLeft: "78%", labelTop: 55, labelWidth: "18%", dotLeft: "calc(78% - 15px)", dotTop: 10 },
-  { labelLeft: "30.5%", labelTop: 290, labelWidth: "35%", dotLeft: "calc(31% - 15px)", dotTop: 235 },
-  { labelLeft: "65%", labelTop: 290, labelWidth: "26%", dotLeft: "calc(66% - 15px)", dotTop: 235 },
+  { labelLeft: "12%", labelTop: 60, labelWidth: "25%", dotLeft: "calc(12% - 15px)", dotTop: 10 },
+  { labelLeft: "47%", labelTop: 55, labelWidth: "25%", dotLeft: "calc(47.7% - 15px)", dotTop: 10 },
+  { labelLeft: "80%", labelTop: 55, labelWidth: "23%", dotLeft: "calc(80% - 15px)", dotTop: 10 },
+  { labelLeft: "32.5%", labelTop: 290, labelWidth: "29%", dotLeft: "calc(33% - 15px)", dotTop: 240 },
+  { labelLeft: "66%", labelTop: 290, labelWidth: "28%", dotLeft: "calc(66.5% - 15px)", dotTop: 240 },
 ];
 
 export default function ThinkDifferently({ nodes = defaultNodes, variant = "horizontal" }: ThinkDifferentlyProps) {
@@ -196,7 +196,10 @@ export default function ThinkDifferently({ nodes = defaultNodes, variant = "hori
             })}
           </div>
         ) : (
-          <div className="hidden lg:block relative" style={{ height: variant === "sam" ? 410 : 400 }}>
+          <div
+            className={`hidden lg:block relative ${variant === "trpm" ? "trpm-think-diagram" : ""}`}
+            style={{ height: variant === "sam" ? 410 : 400 }}
+          >
             {variant === "sam" ? (
               <svg
                 className="absolute pointer-events-none"

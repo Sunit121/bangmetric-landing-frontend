@@ -37,6 +37,13 @@
   margin: auto;
 }
 
+:where(.bm-landing) .trpm-think-diagram {
+  width: min(100%, 1100px);
+  margin-inline: auto;
+  padding-inline: clamp(24px, 4vw, 64px);
+  box-sizing: border-box;
+}
+
 /* ── Typography ───────────────────────────────────────────────────────── */
 :where(.bm-landing) p {
   font-size: 20px;

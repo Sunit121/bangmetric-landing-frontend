@@ -356,7 +356,7 @@ export default function IntegratedRiskManagement() {
         cubeImage="/images/trpm-jumpstart-icon.png"
         sectionTitle={
           <>
-            BANGEMTRIC TPRM Jumpstarts<br />
+            BANGMETRIC TPRM Jumpstarts<br />
           </>
         }
         subtitle={
