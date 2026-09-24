@@ -133,13 +133,7 @@ const irmThinkNodes = [
     bold: "We apply AI with intent",
     detail: (
       <>
-        Now Assist summaries of risks,
-        <br />
-        issues, documents, and activity
-        <br />
-        logs — reducing analysis from
-        <br />
-        hours to seconds.
+        Now Assist summaries of risks, issues, documents, and activity logs — reducing analysis from hours to seconds.
       </>
     ),
   },
@@ -152,8 +146,7 @@ const irmThinkNodes = [
     detail: (
       <>
         Fast deployment. Clear workflows.
-        <br />
-        Manageable for lean teams.
+        Manageable <br /> for lean teams.
       </>
     ),
   },
@@ -356,7 +349,7 @@ export default function IntegratedRiskManagement() {
         cubeImage="/images/trpm-jumpstart-icon.png"
         sectionTitle={
           <>
-            BANGEMTRIC TPRM Jumpstarts<br />
+            BANGMETRIC TPRM Jumpstarts<br />
           </>
         }
         subtitle={
