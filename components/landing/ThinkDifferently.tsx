@@ -19,7 +19,6 @@ const defaultNodes: ThinkNode[] = [
   { bold: "Resolution over SLA theatre" },
 ];
 
-// Desktop zigzag node positions (5 nodes)
 const desktopPositions = [
   { labelLeft: "2%", labelTop: 95, labelWidth: 200, dotLeft: "calc(8% - 15px)", dotTop: 156, isTop: true },
   { labelLeft: "20%", labelTop: 335, labelWidth: 250, dotLeft: "calc(37% - 15px)", dotTop: 306, isTop: false },
@@ -28,10 +27,6 @@ const desktopPositions = [
   { labelLeft: "84%", labelTop: 150, labelWidth: 180, dotLeft: "calc(88% - 15px)", dotTop: 156, isTop: true },
 ];
 
-// Horizontal timeline (5 nodes: dot-above/label-below, dot-below/label-above, alternating)
-// Container height: 400px, line at CSS y=200
-// Top dots (above line): dotTop=120, center=132, dotBottom=144, stem=144→200 (56px), label below at y=283
-// Bottom dots (below line): dotTop=258, center=270, dotBottom=282, stem=200→258 (58px), label above at y=40
 const horizontalPositions = [
   { labelLeft: "0%", labelTop: 250, labelWidth: "17%", dotLeft: "calc(10% - 15px)", dotTop: 120 },
   { labelLeft: "21%", labelTop: 25, labelWidth: "20%", dotLeft: "calc(30% - 15px)", dotTop: 258 },
@@ -41,11 +36,11 @@ const horizontalPositions = [
 ];
 
 const trpmPositions = [
-  { labelLeft: "9%", labelTop: 65, labelWidth: "25%", dotLeft: "calc(10% - 20px)", dotTop: 16 },
-  { labelLeft: "35%", labelTop: 120, labelWidth: "20%", dotLeft: "calc(32.5% - 15px)", dotTop: 116 },
-  { labelLeft: "54%", labelTop: 280, labelWidth: "22%", dotLeft: "calc(54% - 15px)", dotTop: 233 },
-  { labelLeft: "65%", labelTop: 65, labelWidth: "20%", dotLeft: "calc(65% - 15px)", dotTop: 16 },
-  { labelLeft: "88%", labelTop: 165, labelWidth: "17%", dotLeft: "calc(85.4% - 15px)", dotTop: 165 },
+  { labelLeft: "3.5%", labelTop: 65, labelWidth: "23%", dotLeft: "calc(4% - 15px)", dotTop: 16 },
+  { labelLeft: "28.5%", labelTop: 110, labelWidth: "20%", dotLeft: "calc(26% - 15px)", dotTop: 116 },
+  { labelLeft: "43.5%", labelTop: 280, labelWidth: "24%", dotLeft: "calc(44% - 15px)", dotTop: 233 },
+  { labelLeft: "55.5%", labelTop: 65, labelWidth: "20%", dotLeft: "calc(56% - 15px)", dotTop: 16 },
+  { labelLeft: "79%", labelTop: 165, labelWidth: "20.5%", dotLeft: "calc(76.5% - 15px)", dotTop: 165 },
 ];
 
 const samPositions = [
@@ -123,7 +118,7 @@ export default function ThinkDifferently({ nodes = defaultNodes, variant = "hori
           animation: samLoopPulse 6s linear infinite;
         }
       `}} />
-      <div className="container">
+      <div className="container mx-auto px-4">
         <div className="text-center mb-10 md:mb-10">
           <MotionReveal
             as="h2"
@@ -267,7 +262,7 @@ export default function ThinkDifferently({ nodes = defaultNodes, variant = "hori
                   </filter>
                 </defs>
                 <path
-                  d="M110 31H358V249H646V31H939V180"
+                  d="M44 31H286V249H566V31H841V180"
                   stroke="#A77CFF"
                   strokeWidth="2.5"
                   strokeLinecap="round"
@@ -275,7 +270,7 @@ export default function ThinkDifferently({ nodes = defaultNodes, variant = "hori
                   vectorEffect="non-scaling-stroke"
                 />
                 <path
-                  d="M110 31H358V249H646V31H939V180"
+                  d="M44 31H286V249H566V31H841V180"
                   stroke="url(#trpmLineGradient)"
                   strokeWidth="3"
                   strokeLinecap="round"
@@ -365,21 +360,17 @@ export default function ThinkDifferently({ nodes = defaultNodes, variant = "hori
                     </feMerge>
                   </filter>
                 </defs>
-                {/* Horizontal line at y=200 */}
                 <line x1="0" y1="200" x2="1100" y2="200" stroke="url(#paint0_linear_2556_899)" strokeWidth="3" vectorEffect="non-scaling-stroke" strokeLinecap="round" />
 
-                {/* Top stems: from bottom of dot (y=144) to y=215 (below line), at x=110,550,990 */}
                 <line x1="110" y1="144" x2="110" y2="235" stroke="url(#verticalStemGradient)" strokeWidth="3" strokeLinecap="butt" vectorEffect="non-scaling-stroke" />
                 <line x1="550" y1="144" x2="550" y2="235" stroke="url(#verticalStemGradient)" strokeWidth="3" strokeLinecap="butt" vectorEffect="non-scaling-stroke" />
                 <line x1="990" y1="144" x2="990" y2="235" stroke="url(#verticalStemGradient)" strokeWidth="3" strokeLinecap="butt" vectorEffect="non-scaling-stroke" />
 
-                {/* Bottom stems: from y=185 (above line) to top of dot (y=258), at x=330,770 */}
                 <line x1="330" y1="165" x2="330" y2="260" stroke="url(#verticalStemGradient)" strokeWidth="3" strokeLinecap="butt" vectorEffect="non-scaling-stroke" />
                 <line x1="770" y1="165" x2="770" y2="260" stroke="url(#verticalStemGradient)" strokeWidth="3" strokeLinecap="butt" vectorEffect="non-scaling-stroke" />
               </svg>
             )}
 
-            {/* The animated horizontal gradient spark overlay */}
             {variant === "horizontal" && (
               <div
                 className="absolute left-0 w-full overflow-hidden z-0"
