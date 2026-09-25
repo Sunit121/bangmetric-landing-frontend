@@ -46,9 +46,9 @@ const trpmPositions = [
 const samPositions = [
   { labelLeft: "12%", labelTop: 60, labelWidth: "25%", dotLeft: "calc(12% - 15px)", dotTop: 10 },
   { labelLeft: "47%", labelTop: 55, labelWidth: "25%", dotLeft: "calc(47.7% - 15px)", dotTop: 10 },
-  { labelLeft: "80%", labelTop: 55, labelWidth: "23%", dotLeft: "calc(80% - 15px)", dotTop: 10 },
-  { labelLeft: "32.5%", labelTop: 290, labelWidth: "29%", dotLeft: "calc(33% - 15px)", dotTop: 240 },
-  { labelLeft: "66%", labelTop: 290, labelWidth: "28%", dotLeft: "calc(66.5% - 15px)", dotTop: 240 },
+  { labelLeft: "77%", labelTop: 55, labelWidth: "23%", dotLeft: "calc(77% - 15px)", dotTop: 10 },
+  { labelLeft: "32.5%", labelTop: 250, labelWidth: "29%", dotLeft: "calc(33% - 15px)", dotTop: 200 },
+  { labelLeft: "66%", labelTop: 250, labelWidth: "28%", dotLeft: "calc(66.5% - 15px)", dotTop: 200 },
 ];
 
 export default function ThinkDifferently({ nodes = defaultNodes, variant = "horizontal" }: ThinkDifferentlyProps) {
@@ -193,7 +193,7 @@ export default function ThinkDifferently({ nodes = defaultNodes, variant = "hori
         ) : (
           <div
             className={`hidden lg:block relative ${variant === "trpm" ? "trpm-think-diagram" : ""}`}
-            style={{ height: variant === "sam" ? 410 : 400 }}
+            style={{ height: variant === "sam" ? 350 : 400 }}
           >
             {variant === "sam" ? (
               <svg

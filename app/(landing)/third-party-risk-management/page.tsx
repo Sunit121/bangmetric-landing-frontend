@@ -45,7 +45,7 @@ const irmIntroParagraphs = [
   <>
     At <strong>BANGMETRIC</strong>, we design <strong>ServiceNow TPRM</strong> around your vendor lifecycle, bringing greater <strong>consistency, visibility, and confidence to third-party risk management.</strong>
   </>,
-  <>We streamline vendor onboarding, assessments, monitoring, renewals, and off boarding while connecting procurement, legal, risk, and security workflows. With centralized data, automated processes, and AI-powered insights, organizations can make faster, more informed decisions and manage<br /> third-party risk at scale. ServiceNow TPRM is the platform. Lifecycle design is the differentiator.</>
+  <>We streamline vendor onboarding, assessments, monitoring, renewals, and off boarding while connecting procurement, legal, risk, and security workflows. With centralized data, automated processes, and AI-powered insights, organizations can make faster, more informed decisions and manage third-party risk at scale. ServiceNow TPRM is the platform. Lifecycle design is the differentiator.</>
 ];
 
 const irmJumpstartCards = [
